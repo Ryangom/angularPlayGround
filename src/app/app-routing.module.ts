@@ -8,6 +8,10 @@ import { AddStudentsComponent } from './components/add-students/add-students.com
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
   { path: 'about', component: AboutComponent, data: { breadcrumb: 'About' } },
+  { path: 'service', component: AboutComponent, data: { breadcrumb: 'About' } },
+  { path: 'logout1', component: AboutComponent, data: { breadcrumb: 'About' } },
+  { path: 'logout2', component: AboutComponent, data: { breadcrumb: 'About' } },
+  { path: 'logout3', component: AboutComponent, data: { breadcrumb: 'About' } },
   {
     path: 'student', component: StudentsComponent, data: { breadcrumb: 'Students' },
     children: [

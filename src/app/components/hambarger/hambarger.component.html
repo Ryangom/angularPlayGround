@@ -9,50 +9,153 @@
             </div>
         </div>
 
-        <div class="nav_menu">
-            <ul>
-                <li *ngFor="let item of menuData.slice(0,5)">
-                    <a *ngIf="item.linkParent == menuParent" class="active" href="#">{{item.label}}</a>
-                </li>
-            </ul>
+        <div class="navbar">
 
-            <!-- <div class="dropdown">
-            <a href="#" class="">Home</a>
-
-            <div class="dropdown-menu">
-                <a href="#" class="dropdown-item">Home</a>
-                <a href="#" class="dropdown-item">About</a>
-                <a href="#" class="dropdown-item">Services</a>
-                <a href="#" class="dropdown-item">Contact</a>
-            </div>
-        </div> -->
+            <ng-container *ngFor="let item of firstFiveMenus">
+                <ng-container *ngIf="!item.isDropDown">
+                    <a routerLink="{{item.url}}" routerLinkActive="active">{{item.label}}</a>
+                </ng-container>
+                <div class="dropdown" *ngIf="item.isDropDown">
+                    <a class="dropbtn"> {{item.label}}
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <ng-container *ngFor="let subItem of item.dropDownLinks">
+                            <a href="{{subItem.url}}">{{subItem.label}}</a>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
         </div>
     </div>
 
     <!-- Hamburger -->
-    <div class="hamburger_menu" *ngIf="menuData.length > 5">
-        <i class="bi bi-list"></i>
-        <div class="hamburger_menu_items">
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">About</a>
-                </li>
-                <li class="dropdown">
-                    <a href="">Dropdown</a>
-                    <ul>
-                        <li>
-                            <a href="">1</a>
-                        </li>
-                        <li>
-                            <a href="">2</a>
-                        </li>
-                    </ul>
-                </li>
+    <div class="hamburger_menu" *ngIf="restMenus.length > 0">
+        <i class="{{isHambargerOpen ? 'bi bi-x-lg' : 'bi bi-list'}}" (click)="toggleHambarger()"></i>
+        <div class="sidebarMenu  {{isHambargerOpen ? 'active' : ''}}">
+            <ul class="sidebarMenu__list">
+
+                <ng-container *ngFor="let item of restMenus">
+                    <li class="sidebarMenu__list__item" routerLinkActive="active"
+                        routerLink="/dashboard/committee/dashboard">
+                        <a class="sidebarMenu__list__item__link" routerLink="{{item.url}}" *ngIf="!item.isDropDown">
+                            <p>{{item.label}}</p>
+                        </a>
+                    </li>
+
+                    <!-- Sidebar dropdown part -->
+                    <li class="sidebarMenu__list__item" *ngIf="item.isDropDown">
+                        <a class="sidebarMenu__list__item__link dropdown-btn">
+                            <p>{{item.label}}</p>
+                            <i class="bi bi-caret-down-fill arrow-icon"></i>
+                        </a>
+                        <ul class="submenu--list">
+                            <ng-container *ngFor="let subItem of item.dropDownLinks">
+
+                                <li class="submenu--list__item" routerLink="/dashboard/committee/exam-sessions"
+                                    routerLinkActive="active">
+                                    <a class="submenu--list__item__link">
+                                        <p>{{subItem.label}}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                            <!-- <li class="submenu--list__item" routerLink="/dashboard/committee/exam-sessions"
+                                routerLinkActive="active">
+                                <a class="submenu--list__item__link">
+                                    <p>Exam Sessions</p>
+                                </a>
+                            </li> -->
+                            <!-- Sidebar nested dropdown -->
+                            <!-- <li class="sidebarMenu__list__item">
+                                <a class="sidebarMenu__list__item__link dropdown-btn">
+                                    <p>Before Final Marks</p>
+                                    <i class="bi bi-caret-down-fill arrow-icon"></i>
+                                </a>
+                                <ul class="submenu--list">
+                                    <li class="submenu--list__item"
+                                        routerLink="/dashboard/committee/before-final-submission-status"
+                                        routerLinkActive="active">
+                                        <a class="submenu--list__item__link">
+                                            <p>Submission Status</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </li>
+
+                </ng-container>
+
+
+
             </ul>
         </div>
     </div>
 
 </div>
+
+
+
+
+<!-- <div class="hamburger_menu" *ngIf="menuData.length > 2">
+    <i class="{{isHambargerOpen ? 'bi bi-x-lg' : 'bi bi-list'}}" (click)="toggleHambarger()"></i>
+    <div class="sidebarMenu {{isHambargerOpen ? 'active' : ''}}">
+        <ul class="sidebarMenu__list">
+
+
+            <li class="sidebarMenu__list__item" routerLinkActive="active"
+                routerLink="/dashboard/committee/dashboard">
+                <a class="sidebarMenu__list__item__link">
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="sidebarMenu__list__item">
+                <a class="sidebarMenu__list__item__link dropdown-btn">
+                    <p>Exam Committee</p>
+                    <i class="bi bi-caret-down-fill arrow-icon"></i>
+                </a>
+                <ul class="submenu--list">
+                    <li class="submenu--list__item" routerLink="/dashboard/committee/exam-sessions"
+                        routerLinkActive="active">
+                        <a class="submenu--list__item__link">
+                            <p>Exam Sessions</p>
+                        </a>
+                    </li>
+
+
+                    <li class="sidebarMenu__list__item">
+                        <a class="sidebarMenu__list__item__link dropdown-btn">
+                            <p>Before Final Marks</p>
+                            <i class="bi bi-caret-down-fill arrow-icon"></i>
+                        </a>
+                        <ul class="submenu--list">
+                            <li class="submenu--list__item"
+                                routerLink="/dashboard/committee/before-final-submission-status"
+                                routerLinkActive="active">
+                                <a class="submenu--list__item__link">
+                                    <p>Submission Status</p>
+                                </a>
+                            </li>
+                            <li class="submenu--list__item" routerLink="/dashboard/committee/before-final-marks"
+                                routerLinkActive="active">
+                                <a class="submenu--list__item__link">
+                                    <p>Report</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="submenu--list__item" routerLinkActive="active"
+                        routerLink="/dashboard/committee/course-question-rubrics">
+                        <a class="submenu--list__item__link">
+                            <p>Question Rubrics</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div> -->
