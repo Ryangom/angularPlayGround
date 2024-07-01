@@ -10,6 +10,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { AddStudentsComponent } from './components/add-students/add-students.component';
 import { HambargerComponent } from './components/hambarger/hambarger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     StudentsComponent,
     AddStudentsComponent,
-    HambargerComponent
+    HambargerComponent,
+    PdfComponent
   ],
   imports: [
     BrowserModule,

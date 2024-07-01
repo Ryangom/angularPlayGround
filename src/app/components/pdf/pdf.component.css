@@ -1,0 +1,35 @@
+#contentToConvert {
+    width: 1682px;
+    /* A2+ size in pixels at 96 DPI */
+    height: 1189px;
+    /* Adjust height as needed */
+}
+
+.result-sheet .center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.result-sheet__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-sheet .table-sm th,
+.result-sheet .table-sm td {
+    font-size: 20px;
+}
+
+.result-sheet .table-sm .bg-gray {
+    background-color: #c2c2c2;
+}
+
+.result-sheet .student-table {
+    table-layout: auto;
+    width: 100%;
+}
+
+.result-sheet .fixed-width {
+    width: 20%;
+}

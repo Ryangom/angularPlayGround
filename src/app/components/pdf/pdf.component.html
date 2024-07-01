@@ -1,0 +1,193 @@
+<!-- app.component.html -->
+<!-- <div id="contentToConvert">
+    <h1>Title: Sample PDF Content</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+        Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean
+        faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    <p>Data Table:</p>
+    <table border="1" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>29</td>
+                <td>USA</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane Smith</td>
+                <td>34</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Samuel Green</td>
+                <td>41</td>
+                <td>Canada</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+<!-- app.component.html -->
+<div id="contentToConvert">
+
+    <div class=" result-sheet">
+
+        <div class="result-sheet__header">
+            <div class="col-md-3">
+                <table class="table table-sm table-bordered text-center"
+                    style="border:1px solid black; font-size:small;">
+                    <thead style="border:1px solid black;">
+                        <tr class="bg-gray" style="border:1px solid black;">
+                            <th style="border:1px solid black;" class="py-0">Marks Range</th>
+                            <th style="border:1px solid black;" class="py-0">Letter Grade</th>
+                            <th style="border:1px solid black;" class="py-0">Grade Point</th>
+                        </tr>
+                    </thead>
+                    <tbody style="border:1px solid black;">
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">90% to 100%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">A+</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">4.00</td>
+                        </tr>
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">80% to 89%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">A</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">3.75</td>
+                        </tr>
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">70% to 79%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">B+</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">3.50</td>
+                        </tr>
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">60% to 69%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">B</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">3.00</td>
+                        </tr>
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">50% to 59%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">C</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">2.50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 text-center">
+                <h2>Comilla University</h2>
+                <p>Cumilla</p>
+                <h4>Examination Result Tabulation</h4>
+                <h6>Spring 2024 Final Examination of 1st Year 1st Semester</h6>
+                <h6>
+                    <strong>Department: </strong> Computer Science & Engineering
+                    <strong>Session: </strong> 2023-2024
+                    <strong>Semester CH: </strong> 18
+                </h6>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-sm table-bordered text-center"
+                    style="border:1px solid black; font-size:small;">
+                    <thead style="border:1px solid black;">
+                        <tr class="bg-gray" style="border:1px solid black;">
+                            <th style="border:1px solid black;" class="py-0">Marks Range</th>
+                            <th style="border:1px solid black;" class="py-0">Letter Grade</th>
+                            <th style="border:1px solid black;" class="py-0">Grade Point</th>
+                        </tr>
+                    </thead>
+                    <tbody style="border:1px solid black;">
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">40% to 49%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">D</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">2.00</td>
+                        </tr>
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">35% to 39%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">E</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">1.50</td>
+                        </tr>
+                        <tr style="border:1px solid black;">
+                            <td style="border:1px solid black;" class="py-0">0% to 34%</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">F</td>
+                            <td style="border:1px solid black;" class="py-0 bg-gray">0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table id="excel-table" class="table table-bordered student-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2" colspan="1" class="center">Reg./ID No.</th>
+                        <th rowspan="2" colspan="1" class="center fixed-width">Name of the Student</th>
+                        <th rowspan="1" colspan="5" class="center">Course Code: CSE101</th>
+                        <th rowspan="1" colspan="5" class="center">Course Code: CSE102</th>
+                        <th rowspan="1" colspan="5" class="center">Course Code: CSE103</th>
+                        <th rowspan="1" colspan="3" class="center">Viva Voce</th>
+                        <th rowspan="2" colspan="1" class="center">ECH</th>
+                        <th rowspan="2" colspan="1" class="center">semester GPA</th>
+                        <th rowspan="2" colspan="1" class="center">Remarks</th>
+                    </tr>
+                    <tr>
+                        <th class="text-center">Before<br>Final</th>
+                        <th class="text-center">Final<br>Exam</th>
+                        <th class="text-center">Total<br>Marks</th>
+                        <th class="text-center">LG</th>
+                        <th class="text-center">GP</th>
+                        <th class="text-center">Before<br>Final</th>
+                        <th class="text-center">Final<br>Exam</th>
+                        <th class="text-center">Total<br>Marks</th>
+                        <th class="text-center">LG</th>
+                        <th class="text-center">GP</th>
+                        <th class="text-center">Before<br>Final</th>
+                        <th class="text-center">Final<br>Exam</th>
+                        <th class="text-center">Total<br>Marks</th>
+                        <th class="text-center">LG</th>
+                        <th class="text-center">GP</th>
+                        <th class="text-center">Total<br>Marks</th>
+                        <th class="text-center">LG</th>
+                        <th class="text-center">GP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023001</td>
+                        <td>John Doe</td>
+                        <td>45</td>
+                        <td>48</td>
+                        <td>93</td>
+                        <td>A+</td>
+                        <td>4.00</td>
+                        <td>40</td>
+                        <td>42</td>
+                        <td>82</td>
+                        <td>A</td>
+                        <td>3.75</td>
+                        <td>38</td>
+                        <td>40</td>
+                        <td>78</td>
+                        <td>B+</td>
+                        <td>3.50</td>
+                        <td>88</td>
+                        <td>A+</td>
+                        <td>4.00</td>
+                        <td>18</td>
+                        <td>3.75</td>
+                        <td>Excellent</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<button (click)="downloadPDF()">Download PDF</button>
