@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { PdfService } from 'src/app/service/pdf.service';
 
 @Component({
   selector: 'app-pdf',
@@ -8,11 +9,6 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./pdf.component.css']
 })
 export class PdfComponent {
-
-
-  constructor() { }
-
-  ngOnInit(): void { }
 
 
   generatePDF(contentId: string): void {
@@ -54,6 +50,19 @@ export class PdfComponent {
   downloadPDF() {
     this.generatePDF('contentToConvert');
   }
+
+
+
+  pdf: PdfService
+
+  constructor(pdf: PdfService) {
+    this.pdf = pdf
+  }
+
+  generatePdf() {
+    this.pdf.gradeSheetReport();
+  }
+
 
 
 }

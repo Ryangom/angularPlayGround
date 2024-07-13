@@ -11,6 +11,7 @@ import { AddStudentsComponent } from './components/add-students/add-students.com
 import { HambargerComponent } from './components/hambarger/hambarger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { StudentDashComponent } from './pages/student-dash/student-dash.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PdfComponent } from './components/pdf/pdf.component';
     StudentsComponent,
     AddStudentsComponent,
     HambargerComponent,
-    PdfComponent
+    PdfComponent,
+    StudentDashComponent
   ],
   imports: [
     BrowserModule,

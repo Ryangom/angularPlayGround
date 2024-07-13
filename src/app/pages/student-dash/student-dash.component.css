@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+
+.studentDashbord {
+    padding: 0 2em;
+    font-family: "Roboto Serif", serif;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.gap-1 {
+    gap: 1em
+}
+
+.dashboardTop {
+    padding: 1em 0;
+}
+
+.dashboardTop hr {
+    color: black;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.studentCard {
+    min-width: 250px;
+    background: linear-gradient(180deg, rgba(104, 104, 104, 1) 0%, rgba(19, 19, 19, 1) 100%);
+    color: white;
+    width: 25%;
+    padding: 0.5em 1em;
+    border-radius: 12px;
+}
+
+.studentCard p {
+    font-size: 1.3em;
+}
+
+.studentCard img {
+    width: 40px;
+}
+
+.studentCardTop {
+    text-align: end;
+}
+
+.studentCardTop p {
+    font-weight: 300;
+}
+
+.profileAndQuickLinksSection {
+    display: flex;
+    gap: 2em;
+    margin: 3em 0;
+}
+
+.profile {
+    background: white;
+    min-width: 350px;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 2px 5px 0px rgba(69, 69, 69, 0.75);
+}
+
+.profileImg {
+    width: 100px;
+    height: 100px;
+}
+
+.profileImg img {
+    width: 100%;
+}
+
+.profileDetails h1 {
+    font-size: 1.5em;
+}
+
+.profileDetails div {
+    margin-top: 0.5em;
+    text-align: left;
+    line-height: 25px;
+    margin-bottom: 2em;
+}
+
+.profileDetails a {
+    cursor: pointer;
+}
+
+.profileTop {
+    display: flex;
+    margin-bottom: 1em;
+    width: 100%;
+    align-items: center;
+    gap: 0.2em;
+    justify-content: end;
+}
+
+.profileTop img {
+    width: 25px;
+}
+
+
+
+.quickLinksSection {
+    background: white;
+    box-shadow: 0px 2px 5px 0px rgba(69, 69, 69, 0.75);
+    display: block;
+    padding: 1.4em;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.quickLinksSection h1 {
+    font-size: 1.5em;
+}
+
+.linksArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2em;
+    margin-top: 1em;
+}
+
+
+.quickLinks {
+    padding: 1em;
+    width: 180px;
+    background: linear-gradient(180deg, rgba(104, 104, 104, 1) 0%, rgba(19, 19, 19, 1) 100%);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.quickLinks img {
+    width: 60px;
+}
+
+
+.coursesAndSchedule {
+    display: flex;
+    gap: 2em;
+    margin: 1em 0;
+
+}
+
+.courses {
+    padding: 1em 0;
+    background: white;
+    box-shadow: 0px 2px 5px 0px rgba(69, 69, 69, 0.75);
+    border-radius: 10px;
+    padding: 1em;
+}
+
+
+.coursesDetails {
+    width: 350px;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+.coursesDetails p {
+    text-align: left;
+    line-height: 30px;
+}
+
+.coursesDetails hr {
+    margin: 0.5em auto 0 auto;
+    color: black;
+    border: 1px solid rgb(194, 194, 194);
+    width: 70%;
+}
+
+.schedule {
+    padding: 1em 0;
+    background: white;
+    box-shadow: 0px 2px 5px 0px rgba(69, 69, 69, 0.75);
+    border-radius: 10px;
+    padding: 1em;
+    width: 100%;
+}
+
+.scheduleDay {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(104, 104, 104, 1) 0%, rgba(19, 19, 19, 1) 100%);
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    padding: 0.3em;
+    margin: 1em 0;
+}
+
+.scheduleDay h1 {
+    font-size: 1.3em;
+}
+
+.scheduleDaySection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.scheduleCard {
+    padding: 1em;
+    line-height: 25px;
+}
