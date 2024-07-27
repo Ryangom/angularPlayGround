@@ -11,7 +11,10 @@ import { AddStudentsComponent } from './components/add-students/add-students.com
 import { HambargerComponent } from './components/hambarger/hambarger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PdfComponent } from './components/pdf/pdf.component';
-import { StudentDashComponent } from './pages/student-dash/student-dash.component';
+import { StudentDashComponent } from './pages/student/student-dash/student-dash.component';
+import { ProfileComponent } from './pages/student/profile/profile.component';
+import { ChangePasswordComponent } from './pages/student/change-password/change-password.component';
+import { HeadingComponent } from './pages/student/shared/heading/heading.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { StudentDashComponent } from './pages/student-dash/student-dash.componen
     AddStudentsComponent,
     HambargerComponent,
     PdfComponent,
-    StudentDashComponent
+    StudentDashComponent,
+    ProfileComponent,
+    ChangePasswordComponent,
+    HeadingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,108 @@
+.student_profile {
+    padding: 1em 0;
+    margin: 1em 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.profileSidebar {
+    /* padding: 1em 0; */
+    width: 200px;
+}
+
+.profileArea {
+    border-right: 0.2em solid rgba(128, 128, 128, 0.187);
+    height: 100vh;
+    display: block;
+    padding: 0 1em;
+}
+
+.profileImg {
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileImg .img {
+    width: 120px;
+    border: 5px solid black;
+    border-radius: 5em;
+    padding: 0.4em;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.profileImg .img img {
+    width: 100%;
+    border-radius: 5em;
+}
+
+
+.profileContent {
+    margin-top: 1em;
+}
+
+.profileContent ul li {
+    list-style: none;
+    margin: 0.5em 0;
+    cursor: pointer;
+    border-radius: 1em;
+}
+
+.profileContent ul li a {
+    text-decoration: none;
+    display: block;
+    color: black;
+    padding: 0.3em 1.5em;
+}
+
+.profileContent ul .active {
+    background: linear-gradient(180deg, rgba(104, 104, 104, 1) 0%, rgba(19, 19, 19, 1) 100%);
+    font-weight: bold;
+}
+
+.profileContent ul .active a {
+    color: white;
+
+}
+
+
+.profileForm {
+    padding: 0 3em;
+    width: 100%;
+}
+
+.formRow {
+    display: flex;
+    padding: 1em 0;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+.inputSec {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 315px;
+}
+
+.inputSec label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.inputSec input {
+    border-radius: 5px;
+    border: 0.1em solid rgba(128, 128, 128, 0.43);
+    padding: 0.6em 0.5em;
+    outline: none;
+}
+
+.inputSec select {
+    border-radius: 5px;
+    border: 0.1em solid rgba(128, 128, 128, 0.43);
+    padding: 0.6em 0.5em;
+    outline: none;
+}

@@ -1,0 +1,9 @@
+.students_page_heading {
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid black;
+}
+
+.students_page_heading p {
+    font-weight: bold;
+    font-size: 1.5em;
+}

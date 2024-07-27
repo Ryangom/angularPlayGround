@@ -4,6 +4,8 @@ import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { StudentsComponent } from './components/students/students.component';
 import { AddStudentsComponent } from './components/add-students/add-students.component';
+import { StudentDashComponent } from './pages/student/student-dash/student-dash.component';
+import { ProfileComponent } from './pages/student/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
@@ -15,11 +17,13 @@ const routes: Routes = [
   {
     path: 'student', component: StudentsComponent, data: { breadcrumb: 'Students' },
     children: [
-      {
-        path: 'add', component: AddStudentsComponent, data: { breadcrumb: 'Add Students' }, children: [
-          { path: ':id', component: AddStudentsComponent, data: { breadcrumb: 'Edit Students' } }
-        ]
-      }
+      // {
+      //   path: 'add', component: AddStudentsComponent, data: { breadcrumb: 'Add Students' }, children: [
+      //     { path: ':id', component: AddStudentsComponent, data: { breadcrumb: 'Edit Students' } }
+      //   ]
+      // },
+      { path: '', component: StudentDashComponent, data: { breadcrumb: 'Home' } },
+      { path: 'profile', component: ProfileComponent, data: { breadcrumb: 'profile' } },
     ]
   },
 ];
