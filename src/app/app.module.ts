@@ -15,6 +15,8 @@ import { StudentDashComponent } from './pages/student/student-dash/student-dash.
 import { ProfileComponent } from './pages/student/profile/profile.component';
 import { ChangePasswordComponent } from './pages/student/change-password/change-password.component';
 import { HeadingComponent } from './pages/student/shared/heading/heading.component';
+import { ContainerComponent } from './pages/student/shared/container/container.component';
+import { PaymentLedgerSummaryComponent } from './pages/student/payment-ledger-summary/payment-ledger-summary.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HeadingComponent } from './pages/student/shared/heading/heading.compone
     StudentDashComponent,
     ProfileComponent,
     ChangePasswordComponent,
-    HeadingComponent
+    HeadingComponent,
+    ContainerComponent,
+    PaymentLedgerSummaryComponent
   ],
   imports: [
     BrowserModule,

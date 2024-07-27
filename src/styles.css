@@ -46,3 +46,44 @@
 .text-center {
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+.formRow {
+    display: flex;
+    padding: 1em 0;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+.inputSec {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 315px;
+}
+
+.inputSec label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.inputSec input {
+    border-radius: 5px;
+    border: 0.1em solid rgba(128, 128, 128, 0.43);
+    padding: 0.6em 0.5em;
+    outline: none;
+}
+
+.inputSec select {
+    border-radius: 5px;
+    border: 0.1em solid rgba(128, 128, 128, 0.43);
+    padding: 0.6em 0.5em;
+    outline: none;
+}

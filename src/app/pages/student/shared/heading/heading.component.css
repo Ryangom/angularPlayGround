@@ -1,6 +1,7 @@
 .students_page_heading {
     padding-bottom: 0.5em;
     border-bottom: 2px solid black;
+    margin-bottom: 1em;
 }
 
 .students_page_heading p {
