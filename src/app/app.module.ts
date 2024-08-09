@@ -17,6 +17,8 @@ import { ChangePasswordComponent } from './pages/student/change-password/change-
 import { HeadingComponent } from './pages/student/shared/heading/heading.component';
 import { ContainerComponent } from './pages/student/shared/container/container.component';
 import { PaymentLedgerSummaryComponent } from './pages/student/payment-ledger-summary/payment-ledger-summary.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,12 +35,14 @@ import { PaymentLedgerSummaryComponent } from './pages/student/payment-ledger-su
     ChangePasswordComponent,
     HeadingComponent,
     ContainerComponent,
-    PaymentLedgerSummaryComponent
+    PaymentLedgerSummaryComponent,
+    DynamicFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

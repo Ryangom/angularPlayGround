@@ -1,0 +1,72 @@
+<!-- <div class="">
+  <div class="">
+    <label for="">Module 1</label>
+    <input type="text">
+  </div>
+  <div class="">
+    <label for="">Module 1</label>
+    <input type="text">
+  </div>
+
+
+
+  <div class="">
+    <button>Add Module</button>
+    <button>Remove Module</button>
+
+  </div>
+</div> -->
+
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div formArrayName="modules">
+    <div *ngFor="let module of modules.controls; let i = index" [formGroupName]="i">
+      <!-- Module Name -->
+      <div class="">
+        <label for="module">Module {{ i + 1 }}</label>
+        <input formControlName="module" type="text">
+
+        <!-- Lectures Section -->
+        <div formArrayName="lectures">
+          <div *ngFor="let lecture of getLectures(i).controls; let j = index" [formGroupName]="j">
+
+            <div class="">
+              <label>Lecture Name:</label>
+              <input formControlName="lecture" type="text">
+              <label>Description:</label>
+              <input formControlName="description" type="text">
+            </div>
+
+
+            <!-- Remove Lecture Button -->
+            <button type="button" (click)="removeLecture(i, j)">Remove Lecture</button>
+            <button type="button" (click)="addLecture(i)">Add Lecture</button>
+          </div>
+        </div>
+
+        <!-- Add Lecture Button -->
+      </div>
+      <br>
+
+      <!-- Remove Module Button -->
+      <button type="button" (click)="removeModule(i)">Remove Module</button>
+    </div>
+  </div>
+
+  <!-- Add Module Button -->
+  <button type="button" (click)="addModule()">Add Module</button>
+
+  <!-- Submit Button -->
+  <button type="submit">Submit</button>
+</form>
+
+
+
+<br>
+<br>
+<br>
+
+Output:
+
+<pre>{{ form.value | json }}</pre>
