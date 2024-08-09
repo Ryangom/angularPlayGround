@@ -30,14 +30,14 @@ export class DynamicFormComponent {
             "description": "Course Learning Outcome 1"
           },
           {
-            "id": 1,
+            "id": 2,
             "lecture": "Lecture two",
             "description": "Course Learning Outcome 2"
           }
         ]
       },
       {
-        "id": 1,
+        "id": 2,
         "module": "Module 2",
         "lectures": [
           {
@@ -46,7 +46,7 @@ export class DynamicFormComponent {
             "description": "Course Learning Outcome 1"
           },
           {
-            "id": 1,
+            "id": 2,
             "lecture": "Lecture four",
             "description": "Course Learning Outcome 2"
           }
@@ -68,7 +68,7 @@ export class DynamicFormComponent {
   // Function to create a new module FormGroup with a lectures FormArray
   createModule(moduleData?: any): FormGroup {
     return this.fb.group({
-      id: [moduleData?.id || null],
+      id: [moduleData?.id || ''],
       module: [moduleData?.module || ''],
       lectures: this.fb.array(
         moduleData?.lectures?.map((lecture: any) => this.createLecture(lecture)) || [this.createLecture()]
@@ -79,7 +79,7 @@ export class DynamicFormComponent {
   // Function to create a new lecture FormGroup with a description field
   createLecture(lectureData?: any): FormGroup {
     return this.fb.group({
-      id: [lectureData?.id || null],
+      id: [lectureData?.id || ''],
       lecture: [lectureData?.lecture || ''],
       description: [lectureData?.description || '']
     });
@@ -127,6 +127,22 @@ export class DynamicFormComponent {
   // Function to handle form submission
   onSubmit() {
     console.log(this.form.value);
+
+    let finalData = [
+      {
+        part: 'A',
+        modules: this.form.value.modules
+      },
+      {
+        part: 'B',
+        modules: this.form.value.modules
+      },
+    ]
+
+
+
+    console.log(finalData);
+
     // Perform the update operation here (e.g., send the updated data to a server)
   }
 }
