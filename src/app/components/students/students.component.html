@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Program Outcomes</th>
+                <th *ngFor="let course of courseOutcome">{{ course.name }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let program of programOutcomes">
+                <td>{{ program.name }}</td>
+                <td *ngFor="let course of courseOutcome">
+                    <select (change)="updateSelection(program.programOutcomeTemplateId, course.id, $event)">
+                        <option value="">Select</option>
+                        <!-- Example options, you can add more if needed -->
+                        <option value="1">High</option>
+                        <option value="0">Low</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button (click)="onSubmit()">Submit</button>
+</div>
