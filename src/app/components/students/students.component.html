@@ -1,25 +1,119 @@
-<div>
-    <table border="1">
+<!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <table class="table">
         <thead>
             <tr>
-                <th>Program Outcomes</th>
-                <th *ngFor="let course of courseOutcome">{{ course.name }}</th>
+                <th>Course Outcomes</th>
+                <th>Program Outcomes </th>
+                <th>Knowledge Profile</th>
+                <th>Complex Engineering Problems</th>
+                <th>Complex Engineering Activity</th>
+                <th>Bloom's Domain</th>
+                <th>Sub Domain</th>
+                <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let program of programOutcomes">
-                <td>{{ program.name }}</td>
-                <td *ngFor="let course of courseOutcome">
-                    <select (change)="updateSelection(program.programOutcomeTemplateId, course.id, $event)">
-                        <option value="">Select</option>
-                        <!-- Example options, you can add more if needed -->
-                        <option value="1">High</option>
-                        <option value="0">Low</option>
+        <tbody formArrayName="users">
+            <tr *ngFor="let user of users.controls; let i = index" [formGroupName]="i">
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="courseOutcomeTemplateId">
+                        <option value="" disabled>Select Course Outcomes</option>
+                        <option *ngFor="let course of courseOutcomes" [value]="course.id">
+                            {{ course.name }}
+                        </option>
                     </select>
+                </td>
+                <td>
+                    <button type="button" (click)="removeUser(i)">Remove</button>
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <button (click)="onSubmit()">Submit</button>
-</div>
+    <button type="button" (click)="addUser()">Add Row</button>
+    <button type="submit">Submit</button>
+</form> -->
+
+
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course Outcomes</th>
+                <th>Program Outcomes</th>
+                <th>Knowledge Profile</th>
+                <th>Complex Engineering Problems</th>
+                <th>Complex Engineering Activity</th>
+                <th>Bloom's Domain</th>
+                <th>Sub Domain</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody formArrayName="users">
+            <tr *ngFor="let user of users.controls; let i = index" [formGroupName]="i">
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="courseOutcomeTemplateId">
+                        <option value="" disabled>Select Course Outcomes</option>
+                        <option *ngFor="let course of courseOutcomes" [value]="course.id">
+                            {{ course.name }}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="programOutcomeTemplateId">
+                        <option value="" disabled>Select Program Outcomes</option>
+                        <option *ngFor="let program of programOutcomes" [value]="program.id">
+                            {{ program.name }}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="knowledgeProfileId">
+                        <option value="" disabled>Select Knowledge Profile</option>
+                        <option *ngFor="let profile of knowledgeProfiles" [value]="profile.id">
+                            {{ profile.name }}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="complexEngineeringProblemId">
+                        <option value="" disabled>Select Complex Engineering Problems</option>
+                        <option *ngFor="let problem of complexEngineeringProblems" [value]="problem.id">
+                            {{ problem.name }}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="complexEngineeringActivityId">
+                        <option value="" disabled>Select Complex Engineering Activity</option>
+                        <option *ngFor="let activity of complexEngineeringActivities" [value]="activity.id">
+                            {{ activity.name }}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="taxonomyId">
+                        <option value="" disabled>Select Bloom's Domain</option>
+                        <option *ngFor="let domain of bloomDomains" [value]="domain.id">
+                            {{ domain.name }}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-select iums-form-group__input" formControlName="subDomainId">
+                        <option value="" disabled>Select Sub Domain</option>
+                        <option *ngFor="let subDomain of subDomains" [value]="subDomain.id">
+                            {{ subDomain.name }}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <button type="button" (click)="removeUser(i)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" (click)="addUser()">Add Row</button>
+    <button type="submit">Submit</button>
+</form>
