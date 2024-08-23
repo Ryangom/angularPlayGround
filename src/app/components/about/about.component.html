@@ -1,1 +1,50 @@
-<p>about works!</p>
+<!-- <table border="1">
+    <tr>
+        <th>Program</th>
+        <ng-container *ngFor="let item of data[0].courseOutcomes">
+            <th>{{ item.name }}</th>
+        </ng-container>
+    </tr>
+    <tr *ngFor="let item of data">
+        <td *ngFor="let po of item.programOutcomes">{{ po.name }}</td>
+        <ng-container *ngFor="let co of item.courseOutcomes">
+            <td>
+                <select>
+                    <option value="">Select</option>
+                    <option value="3" [selected]="co.value === 3">High</option>
+                    <option value="2" [selected]="co.value === 2">Medium</option>
+                    <option value="1" [selected]="co.value === 1">Low</option>
+                </select>
+            </td>
+        </ng-container>
+    </tr>
+</table> -->
+
+
+<form>
+    <table border="1">
+        <!-- Header Row -->
+        <tr>
+            <th>Program</th>
+            <ng-container *ngFor="let item of data[0].courseOutcomes">
+                <th>{{ item.name }}</th>
+            </ng-container>
+        </tr>
+
+        <!-- Data Rows -->
+        <tr *ngFor="let item of data">
+            <td *ngFor="let po of item.programOutcomes">{{ po.name }}</td>
+            <ng-container *ngFor="let co of item.courseOutcomes">
+                <td>
+                    <select [(ngModel)]="co.value" name="co-{{co.id}}">
+                        <option value="">Select</option>
+                        <option value="3">High</option>
+                        <option value="2">Medium</option>
+                        <option value="1">Low</option>
+                    </select>
+                </td>
+            </ng-container>
+        </tr>
+    </table>
+    <button (click)="onSubmit()">Submit</button>
+</form>
