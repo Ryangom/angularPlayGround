@@ -47,7 +47,7 @@ table {
 
 /* Styles for total and letter grade cells */
 thead th[rowspan] {
-    background-color: #d6e9c6;
+    background-color: #c5dab5;
     color: #333;
 }
 
@@ -57,9 +57,7 @@ th {
     border: 1px solid #000000;
 }
 
-th[colspan] {
-    background-color: #c0c0c0;
-}
+
 
 /* Additional styles for data cells in the last row */
 th[rowspan="2"],
