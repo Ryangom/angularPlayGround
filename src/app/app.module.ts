@@ -19,6 +19,7 @@ import { ContainerComponent } from './pages/student/shared/container/container.c
 import { PaymentLedgerSummaryComponent } from './pages/student/payment-ledger-summary/payment-ledger-summary.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ButexTabulationPDFComponent } from './pages/butex-tabulation-pdf/butex-tabulation-pdf.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeadingComponent,
     ContainerComponent,
     PaymentLedgerSummaryComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    ButexTabulationPDFComponent
   ],
   imports: [
     BrowserModule,
