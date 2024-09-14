@@ -383,9 +383,38 @@
     <table border="1">
         <thead>
             <tr>
+                <th rowspan="7">Sl.No</th>
+                <th rowspan="7">Student ID</th>
+                <th rowspan="7">Name Of Student</th>
+                <th rowspan="7">Year of 1st Admission into the Program</th>
+                <th rowspan="7">Appeared Courses </th>
+
+
                 <ng-container *ngFor="let data of students[0].accumulatedSubjects;">
                     <th [attr.colspan]="data.partialSubjects.length === 2 ? 12 : 6">{{data.mainSubjectName}}</th>
                 </ng-container>
+
+
+
+                <th rowspan="7">∑Ci×Gi of this Term</th>
+                <th rowspan="7">Total Credits Taken up to This Term</th>
+                <th rowspan="7">Total Credits taken upto this Term</th>
+                <th rowspan="7">Total Credits Earned up to Immediate Past Term</th>
+                <th rowspan="7">Credits Earned From Retake Subjects in This Term</th>
+                <th rowspan="7">Credits Earned From Regular Subjects in This Term</th>
+                <th rowspan="7">Total Credits Earned up to This Term</th>
+                <th rowspan="7">Total Marks Earned up to Immediate Past Term</th>
+                <th rowspan="7">Marks Earned From Retake Subjects in This Term</th>
+                <th rowspan="7">Marks Earned From Regular Subjects in This Term</th>
+                <th rowspan="7">Total Marks Earned up to This Term</th>
+                <th rowspan="7">∑Ci×Gi upto Immediate Past Term</th>
+                <th rowspan="7">∑Ci×Gi of retake subject(s)</th>
+                <th rowspan="7">∑Ci×Gi upto this Term</th>
+                <th rowspan="7">CGPA</th>
+                <th rowspan="7">Result</th>
+                <th rowspan="7">Student's ID</th>
+                <th rowspan="7">Failed Subject(s) in this Term</th>
+                <th rowspan="7">Remarks</th>
             </tr>
 
             <tr>
@@ -515,7 +544,17 @@
 
         <tbody>
             <!-- Iterate over each student -->
-            <tr *ngFor="let student of students">
+            <tr *ngFor="let student of students; let i = index">
+
+                <td>{{i+1}}</td>
+                <td>{{student.studentUniqueId}}</td>
+                <td>{{student.studentName}}</td>
+                <td>{{student.firstAdmissionYear}}</td>
+                <td>
+                    {{ getSubjectCodes(student) }}
+                </td>
+
+
                 <!-- Iterate over each subject of the current student -->
                 <ng-container *ngFor="let subject of student.accumulatedSubjects">
                     <!-- If there are partial subjects, create <td> for each one -->
@@ -551,6 +590,27 @@
                         <td>{{subject.finalSubjectTabulationSheetDTO.gpa}}</td>
                     </ng-container>
                 </ng-container>
+
+
+                <td>{{ student.ciGiOfThisTerm}}</td>
+                <td>{{ student.totalCreditsTakenUpToThisTerm}}</td>
+                <td>{{ student.totalCreditsTakenUpToThisTerm}}</td>
+                <td>{{ student.totalCreditsEarnedUpToImmediatePastTerm}}</td>
+                <td>{{ student.creditsEarnedFromRetakeSubjectsInThisTerm}}</td>
+                <td>{{ student.creditsEarnedFromRegularSubjectsInThisTerm}}</td>
+                <td>{{ student.totalCreditsEarnedUpToThisTerm}}</td>
+                <td>{{ student.totalMarksEarnedUpToImmediatePastTerm}}</td>
+                <td>{{ student.marksEarnedFromRetakeSubjectsInThisTerm}}</td>
+                <td>{{ student.marksEarnedFromRegularSubjectsInThisTerm}}</td>
+                <td>{{ student.totalMarksEarnedUpToThisTerm}}</td>
+                <td>{{ student.ciGiUpToImmediatePastTerm}}</td>
+                <td>{{ student.ciGiOfRetakeSubject}}</td>
+                <td>{{ student.ciGiUpToThisTerm}}</td>
+                <td>{{ student.semesterGpa}}</td>
+                <td>{{ student.remarks}}</td>
+                <td>{{ student.studentUniqueId}}</td>
+                <td>-nodata-</td>
+                <td>{{ student.remarks}}</td>
             </tr>
         </tbody>
 
