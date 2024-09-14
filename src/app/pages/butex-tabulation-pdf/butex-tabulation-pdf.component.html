@@ -241,35 +241,77 @@
         <thead>
             <tr>
                 <ng-container *ngFor="let data of subjects;">
-
-                    <th [colSpan]="data.subjects.length === 2 ? 12 : 6">{{data.mainName}}</th>
-                </ng-container>
-            </tr>
-
-            <!-- theory -->
-            <tr>
-                <ng-container *ngFor="let data of subjects;">
-                    <th colspan="6" *ngFor="let sub of data.subjects;">{{sub.subjectName}}</th>
+                    <th [attr.colspan]="data.partialSubjects.length === 2 ? 12 : 6">{{data.mainSubjectName}}</th>
                 </ng-container>
             </tr>
 
             <tr>
                 <ng-container *ngFor="let data of subjects;">
-                    <th colspan="6" *ngFor="let sub of data.subjects;">{{sub.type}}</th>
-                </ng-container>
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th *ngFor="let partialSubjects of data.partialSubjects" colspan="6">
+                            {{partialSubjects.subjectCode}}
+                        </th>
+                    </ng-container>
 
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th colspan="6">
+                            {{data.subjectCode}}
+                        </th>
+                    </ng-container>
+                </ng-container>
             </tr>
 
             <tr>
                 <ng-container *ngFor="let data of subjects;">
-                    <th colspan="6" *ngFor="let sub of data.subjects;">{{sub.subjectCredit}}</th>
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th *ngFor="let partialSubjects of data.partialSubjects" colspan="6">
+                            {{partialSubjects.finalSubjectTabulationSheetDTO.theory ? 'Theory' : 'Lab'}}</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th colspan="6">
+                            {{data.finalSubjectTabulationSheetDTO.theory ? 'Theory' : 'Lab'}}</th>
+                    </ng-container>
                 </ng-container>
             </tr>
 
             <tr>
                 <ng-container *ngFor="let data of subjects;">
-                    <ng-container *ngIf="data.subjects[0].type === 'Theory'">
-                        <th>Continuous Assess. D(40%)</th>
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th *ngFor="let partialSubjects of data.partialSubjects" colspan="6">
+                            {{partialSubjects.finalSubjectTabulationSheetDTO.subjectCredit}}</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th colspan="6">
+                            {{data.finalSubjectTabulationSheetDTO.subjectCredit}}</th>
+                    </ng-container>
+
+
+                </ng-container>
+            </tr>
+
+            <tr>
+                <ng-container *ngFor="let data of subjects;">
+
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+
+                        <th>Continuous Assess.(40%)</th>
+                        <th colspan="2">Final Examination (60%)</th>
+                        <th rowspan="2">Total (100%)</th>
+                        <th rowspan="3">Letter Grade</th>
+                        <th rowspan="3">Grade Point</th>
+
+                        <th>Continuous Assess. (60%)</th>
+                        <th>Term Final (40%)</th>
+                        <th>Total (100%)</th>
+                        <th rowspan="3">Letter Grade</th>
+                        <th rowspan="3" colspan="2">Grade Point</th>
+                    </ng-container>
+
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th>Continuous Assess.(40%)</th>
                         <th colspan="2">Final Examination (60%)</th>
                         <th rowspan="2">Total (100%)</th>
                         <th rowspan="3">Letter Grade</th>
@@ -277,33 +319,53 @@
                     </ng-container>
                 </ng-container>
 
-                <!-- <ng-container *ngFor="let data of subjects;"> -->
-                <!-- <ng-container *ngIf="data.subjects[1].type === 'Lab'"> -->
-                <th>Continuous Assess. (60%)</th>
-                <th>Term Final (40%)</th>
-                <th>Total (100%)</th>
-                <th rowspan="3">Letter Grade</th>
-                <th rowspan="3" colspan="2">Grade Point</th>
-                <!-- </ng-container> -->
-                <!-- </ng-container> -->
-            </tr>
 
 
-            <tr>
-                <th rowspan="2">60</th>
-                <th colspan="2">90</th>
-
-                <th rowspan="2">60</th>
-                <th rowspan="2">40</th>
-                <th rowspan="2">100</th>
 
             </tr>
 
 
             <tr>
-                <th>Part-A</th>
-                <th>Part-B</th>
-                <th>150</th>
+                <ng-container *ngFor="let data of subjects;">
+
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th rowspan="2">60</th>
+                        <th colspan="2">90</th>
+
+                        <th rowspan="2">60</th>
+                        <th rowspan="2">40</th>
+                        <th rowspan="2">100</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th rowspan="2">60</th>
+                        <th colspan="2">90</th>
+
+                    </ng-container>
+                </ng-container>
+
+
+            </tr>
+
+
+            <tr>
+                <ng-container *ngFor="let data of subjects;">
+
+                    <ng-container
+                        *ngIf="data.partialSubjects.length === 2 && data.partialSubjects[0].finalSubjectTabulationSheetDTO.theory">
+                        <th>Part-A</th>
+                        <th>Part-B</th>
+                        <th>150</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th>Part-A</th>
+                        <th>Part-B</th>
+                        <th>150</th>
+                    </ng-container>
+
+                </ng-container>
+
             </tr>
 
         </thead>
