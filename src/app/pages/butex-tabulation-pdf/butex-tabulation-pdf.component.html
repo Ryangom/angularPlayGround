@@ -377,3 +377,186 @@
 
     </table>
 </div>
+
+<h1 style="text-align: center;">Tabulation Sheet</h1>
+<div class="" style="margin: 5em;">
+    <table border="1">
+        <thead>
+            <tr>
+                <ng-container *ngFor="let data of students[0].accumulatedSubjects;">
+                    <th [attr.colspan]="data.partialSubjects.length === 2 ? 12 : 6">{{data.mainSubjectName}}</th>
+                </ng-container>
+            </tr>
+
+            <tr>
+                <ng-container *ngFor="let data of students[0].accumulatedSubjects;;">
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th *ngFor="let partialSubjects of data.partialSubjects" colspan="6">
+                            {{partialSubjects.subjectCode}}
+                        </th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th colspan="6">
+                            {{data.subjectCode}}
+                        </th>
+                    </ng-container>
+                </ng-container>
+            </tr>
+
+            <tr>
+                <ng-container *ngFor="let data of students[0].accumulatedSubjects;;">
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th *ngFor="let partialSubjects of data.partialSubjects" colspan="6">
+                            {{partialSubjects.finalSubjectTabulationSheetDTO.theory ? 'Theory' : 'Lab'}}</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th colspan="6">
+                            {{data.finalSubjectTabulationSheetDTO.theory ? 'Theory' : 'Lab'}}</th>
+                    </ng-container>
+                </ng-container>
+            </tr>
+
+            <tr>
+                <ng-container *ngFor="let data of students[0].accumulatedSubjects;;">
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th *ngFor="let partialSubjects of data.partialSubjects" colspan="6">
+                            {{partialSubjects.finalSubjectTabulationSheetDTO.subjectCredit}}</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th colspan="6">
+                            {{data.finalSubjectTabulationSheetDTO.subjectCredit}}</th>
+                    </ng-container>
+
+
+                </ng-container>
+            </tr>
+
+            <tr>
+                <ng-container *ngFor="let data of students[0].accumulatedSubjects;;">
+
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+
+                        <th>Continuous Assess.(40%)</th>
+                        <th colspan="2">Final Examination (60%)</th>
+                        <th rowspan="2">Total (100%)</th>
+                        <th rowspan="3">Letter Grade</th>
+                        <th rowspan="3">Grade Point</th>
+
+                        <th>Continuous Assess. (60%)</th>
+                        <th>Term Final (40%)</th>
+                        <th>Total (100%)</th>
+                        <th rowspan="3">Letter Grade</th>
+                        <th rowspan="3" colspan="2">Grade Point</th>
+                    </ng-container>
+
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th>Continuous Assess.(40%)</th>
+                        <th colspan="2">Final Examination (60%)</th>
+                        <th rowspan="2">Total (100%)</th>
+                        <th rowspan="3">Letter Grade</th>
+                        <th rowspan="3">Grade Point</th>
+                    </ng-container>
+                </ng-container>
+
+
+
+
+            </tr>
+
+
+            <tr>
+                <ng-container *ngFor="let data of students[0].accumulatedSubjects;;">
+
+                    <ng-container *ngIf="data.partialSubjects.length === 2">
+                        <th rowspan="2">60</th>
+                        <th colspan="2">90</th>
+
+                        <th rowspan="2">60</th>
+                        <th rowspan="2">40</th>
+                        <th rowspan="2">100</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th rowspan="2">60</th>
+                        <th colspan="2">90</th>
+
+                    </ng-container>
+                </ng-container>
+
+
+            </tr>
+
+
+            <tr>
+                <ng-container *ngFor="let data of students[0].accumulatedSubjects;;">
+
+                    <ng-container
+                        *ngIf="data.partialSubjects.length === 2 && data.partialSubjects[0].finalSubjectTabulationSheetDTO.theory">
+                        <th>Part-A</th>
+                        <th>Part-B</th>
+                        <th>150</th>
+                    </ng-container>
+
+                    <ng-container *ngIf="data.partialSubjects.length === 0">
+                        <th>Part-A</th>
+                        <th>Part-B</th>
+                        <th>150</th>
+                    </ng-container>
+
+                </ng-container>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <!-- Iterate over each student -->
+            <tr *ngFor="let student of students">
+                <!-- Iterate over each subject of the current student -->
+                <ng-container *ngFor="let subject of student.accumulatedSubjects">
+                    <!-- If there are partial subjects, create <td> for each one -->
+                    <ng-container *ngIf="subject.partialSubjects.length === 2">
+                        <ng-container *ngFor="let partialSubject of subject.partialSubjects">
+                            <ng-container *ngIf="partialSubject.finalSubjectTabulationSheetDTO.theory">
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.beforeFinalMarks}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.partAMarks}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.partBMarks}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.totalMarks}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.letterGrade}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.gpa}}</td>
+                            </ng-container>
+
+                            <ng-container *ngIf="partialSubject.finalSubjectTabulationSheetDTO.lab">
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.beforeFinalMarks}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.finalMarks}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.totalMarks}}</td>
+                                <td>{{partialSubject.finalSubjectTabulationSheetDTO.letterGrade}}</td>
+                                <td colspan="2">{{partialSubject.finalSubjectTabulationSheetDTO.gpa}}</td>
+                            </ng-container>
+
+                            <!-- Add more <td> as needed based on headers -->
+                        </ng-container>
+                    </ng-container>
+
+                    <ng-container *ngIf="subject.partialSubjects.length === 0">
+                        <td>{{subject.finalSubjectTabulationSheetDTO.beforeFinalMarks}}</td>
+                        <td>{{subject.finalSubjectTabulationSheetDTO.partAMarks}}</td>
+                        <td>{{subject.finalSubjectTabulationSheetDTO.partBMarks}}</td>
+                        <td>{{subject.finalSubjectTabulationSheetDTO.totalMarks}}</td>
+                        <td>{{subject.finalSubjectTabulationSheetDTO.letterGrade}}</td>
+                        <td>{{subject.finalSubjectTabulationSheetDTO.gpa}}</td>
+                    </ng-container>
+                </ng-container>
+            </tr>
+        </tbody>
+
+
+
+
+
+    </table>
+</div>
