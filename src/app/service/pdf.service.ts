@@ -21,43 +21,33 @@ export class PdfService {
       return {
         columns: [
           {
-            width: 330,
+            width: '*', // Adjust width as needed
             margin: [0, 1, 30, 0],
             table: {
+              headerRows: 1, // Ensure you have a header row
               body: [
                 [
-                  {
-                    text: 'Marks Range',
-                    style: 'header'
-                  },
-
-                  {
-                    text: 'Letter Grade',
-                    style: 'header',
-                    colSpan: 2
-                  },
-                  {},
-                  {
-                    text: 'Letter Grade',
-                    style: 'header',
-                  },
-
+                  { text: 'Marks Range', style: 'header' },
+                  { text: 'Letter Grade', style: 'header', colSpan: 2 },
+                  {}, // Empty cell for colspan
+                  { text: 'Letter Grade', style: 'header' },
                 ],
                 ['80%', 'A+', '(A Plus)', '4.0'],
                 ['75% to Less than 80%', 'A', '(A regular)', '3.75'],
-                ['70% to Less than 75%', 'A+', '(A Minus)', '3.5'],
-                ['65% to Less than 70%', 'A+', '(B Plus)', '3.25'],
-                ['60% to Less than 65%', 'A+', '(B regular)', '3.0'],
+                ['70% to Less than 75%', 'A-', '(A Minus)', '3.5'],
+                ['65% to Less than 70%', 'B+', '(B Plus)', '3.25'],
+                ['60% to Less than 65%', 'B', '(B regular)', '3.0'],
               ],
-
-            }
+            },
+            layout: 'lightHorizontalLines', // Optional: adjust table layout if needed
           },
           {
+            width: '*',
             alignment: "center",
             stack: [
               {
                 alignment: "center",
-                margin: [1800, 0, 0, 0],
+                margin: [0, 0, 0, 0],
                 columns: [
                   // logo
                   {
@@ -110,7 +100,7 @@ export class PdfService {
           {
             margin: [0, 1, 0, 0],
             alignment: "right",
-            width: 330,
+            width: '*',
             table: {
               body: [
                 [
@@ -149,7 +139,7 @@ export class PdfService {
       return {
         margin: [0, 30, 0, 0],
         table: {
-          margin: [200, 0, 0, 0],
+          margin: [0, 0, 0, 0],
           // widths: ['auto', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           body: [
             // head
@@ -379,7 +369,7 @@ export class PdfService {
       ],
       styles: {
         table: {
-          fontSize: 18,  // set the font size for the entire table
+          fontSize: 21,  // set the font size for the entire table
           // add more styling as needed
         }
       }

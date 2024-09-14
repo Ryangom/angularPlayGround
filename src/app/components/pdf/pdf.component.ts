@@ -9,6 +9,42 @@ import { PdfService } from 'src/app/service/pdf.service';
   styleUrls: ['./pdf.component.css']
 })
 export class PdfComponent {
+
+  courses = [
+    {
+      name: 'Polymers',
+      code: 'TEX 183-0723',
+      type: 'Theory',
+      credits: '3 Credits',
+      marks: {
+        continuous: 60,
+        term: 90,
+        total: 150,
+        partA: 'part-a',
+        partB: 'part-b'
+      }
+    },
+    {
+      name: 'Polymers',
+      code: 'TEX 183-0723',
+      type: 'Theory',
+      credits: '3 Credits',
+      marks: {
+        continuous: 60,
+        term: 90,
+        total: 150,
+        partA: 'part-a',
+        partB: 'part-b'
+      }
+    },
+    // Add more courses as needed
+  ];
+
+
+
+
+
+
   data: any = {
     status: "OK",
     payload: {
