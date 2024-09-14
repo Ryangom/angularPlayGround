@@ -1,0 +1,73 @@
+/* General table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+/* Header row styles */
+thead th {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 0.5em;
+    text-align: center;
+}
+
+/* Styling for columns that span multiple cells */
+thead th[colspan] {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+/* Row styling */
+tr {}
+
+/* Alternate row shading for readability */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Specific styling for header and data cells */
+thead th {
+    font-weight: bold;
+}
+
+/* Cells within the table */
+td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+/* Border and alignment for the entire table */
+table {
+    border: 2px solid #333 !important;
+    margin: auto;
+    margin-top: 5em;
+}
+
+/* Styles for total and letter grade cells */
+thead th[rowspan] {
+    background-color: #c5dab5;
+    color: #333;
+}
+
+/* Specific cell styles for continuous assessment, final examination, etc. */
+th {
+    background-color: #e0e0e0;
+    border: 1px solid #000000;
+}
+
+
+
+/* Additional styles for data cells in the last row */
+th[rowspan="2"],
+td[rowspan="2"] {
+    vertical-align: middle;
+}
+
+/* Ensure text is centered and readable */
+td,
+th {
+    text-align: center;
+    vertical-align: middle;
+}
