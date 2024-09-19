@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { Component, Input, ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-about',
@@ -7,31 +7,134 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  // data: any = [
-  //   {
-  //     courseOutcomes: [{ id: 1, name: 'CO1', value: 1 }, { id: 2, name: 'CO2', value: 2 }, { id: 3, name: 'CO3', value: 3 }],
-  //     programOutcomes: [{ id: 1, name: 'PO1' }],
-  //   },
-  //   {
-  //     courseOutcomes: [{ id: 1, name: 'CO1', value: 1 }, { id: 2, name: 'CO2', value: 2 }, { id: 3, name: 'CO3', value: 3 }],
-  //     programOutcomes: [{ id: 2, name: 'PO2' }],
-  //   },
-  // ];
+  isHambargerOpen: boolean = false
 
-  data = [
-    {
-      courseOutcomes: [{ id: 1, name: 'CO1', value: 1 }, { id: 2, name: 'CO2', value: 2 }, { id: 3, name: 'CO3', value: 3 }],
-      programOutcomes: [{ id: 1, name: 'PO1' }],
-    },
-    {
-      courseOutcomes: [{ id: 1, name: 'CO1', value: 1 }, { id: 2, name: 'CO2', value: 2 }, { id: 3, name: 'CO3', value: 3 }],
-      programOutcomes: [{ id: 2, name: 'PO2' }],
-    },
-  ];
-  onSubmit() {
-    console.log(this.data);
-    // You can process the data here or send it to a server
-  }
+  // menuParent: String = '';
+  // @Input() menuData: any[] = [];
+  // newMenuData: any[] = [];
+
+
+  // // first menus
+  // firstFiveMenus: any[] = [];
+  // restMenus: any[] = [];
+  // topNavService: TopNavServiceService;
+
+  // toggleHambarger() {
+  //   this.isHambargerOpen = !this.isHambargerOpen
+  // }
+  // closeHamburger() {
+  //   this.isHambargerOpen = false
+  // }
+
+  // constructor(topNavService: TopNavServiceService, private cdr: ChangeDetectorRef, private router: Router) {
+  //   this.topNavService = topNavService;
+  // }
+
+  // ngOnInit(): void {
+
+  //   let topNavData = localStorage.getItem('topNavData');
+  //   let topNavParent = localStorage.getItem('topNavParent');
+
+  //   this.topNavService.navParentName.subscribe((data) => {
+
+  //     if (data === 'quick-menu') {
+  //       this.menuParent = '';
+  //       this.firstFiveMenus = [];
+  //       this.restMenus = [];
+  //       localStorage.removeItem('topNavParent');
+  //       localStorage.removeItem('topNavData');
+  //     } else {
+  //       if (data == '') {
+  //         if (topNavData && topNavParent) {
+  //           this.menuParent = topNavParent;
+  //           this.newMenuData = JSON.parse(topNavData);
+  //         }
+  //       } else {
+  //         this.menuParent = data;
+  //       }
+  //     }
+  //     localStorage.setItem('topNavParent', this.menuParent.toString());
+
+  //     this.newMenuData = [];
+  //     this.menuData.forEach((element) => {
+  //       if (element.linkParent == this.menuParent) {
+  //         if (!this.newMenuData.includes(element)) {
+  //           this.newMenuData.push(element);
+  //         }
+  //       }
+  //     });
+  //     localStorage.setItem('topNavData', JSON.stringify(this.newMenuData));
+
+
+  //     this.menuMatchedAndSeparate(this.newMenuData);
+  //     // Trigger change detection
+  //     this.cdr.detectChanges();
+
+  //     // Initialize the dropdown functionality
+  //     this.initializeDropdowns();
+  //   });
+  // }
+
+  // addNewData() {
+
+  // }
+
+
+  // menuMatchedAndSeparate(menu: any): void {
+  //   let matchedMenuArray: any[] = [];
+  //   this.firstFiveMenus = [];
+  //   this.restMenus = [];
+
+
+  //   menu.forEach((item: any) => {
+  //     if (item.linkParent == this.menuParent) {
+  //       matchedMenuArray.push(item);
+  //     }
+  //   });
+
+  //   this.firstFiveMenus = matchedMenuArray.slice(0, 5);
+  //   this.restMenus = matchedMenuArray.slice(5, matchedMenuArray.length);
+  // }
+
+  // ngAfterViewInit(): void {
+  //   // Initialize the dropdown functionality
+  //   this.initializeDropdowns();
+  // }
+
+
+  // initializeDropdowns(): void {
+  //   let dropdown = document.getElementsByClassName("dropdown-btn");
+  //   for (let i = 0; i < dropdown.length; i++) {
+  //     dropdown[i].addEventListener("click", () => {
+  //       // Add a class to the parent a tag
+  //       let parent = dropdown[i].parentElement;
+  //       let aTag = parent.querySelector("a");
+
+  //       if (aTag.classList.contains("active")) {
+  //         aTag.classList.remove("active");
+  //       } else {
+  //         aTag.classList.add("active");
+  //       }
+
+  //       let icon = dropdown[i].getElementsByTagName("i")[0];
+  //       if (icon.classList.contains("bi-caret-down-fill")) {
+  //         icon.classList.remove("bi-caret-down-fill");
+  //         icon.classList.add("bi-caret-up-fill");
+  //       } else {
+  //         icon.classList.add("bi-caret-down-fill");
+  //         icon.classList.remove("bi-caret-up-fill");
+  //       }
+
+  //       let ul = dropdown[i].nextElementSibling;
+  //       if (ul!.classList.contains("submenu--list--show")) {
+  //         ul!.classList.remove("submenu--list--show");
+  //       } else {
+  //         ul!.classList.add("submenu--list--show");
+  //       }
+  //     });
+
+  //   }
+  // }
 
 
 }

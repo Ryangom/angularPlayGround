@@ -52,9 +52,14 @@ thead th[rowspan] {
 }
 
 /* Specific cell styles for continuous assessment, final examination, etc. */
-th {
+tr th {
     background-color: #e0e0e0;
     border: 1px solid #000000;
+    font-size: 1.5em;
+}
+
+tr td {
+    font-size: 1.2em;
 }
 
 

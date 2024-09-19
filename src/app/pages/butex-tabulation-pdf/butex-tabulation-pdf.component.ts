@@ -124,7 +124,7 @@ export class ButexTabulationPDFComponent {
 
   ]
 
-  students: any = [
+  students3: any = [
     {
       "studentUniqueId": "23010101001",
       "studentName": " SAIFUR RAHMAN PALASH",
@@ -2064,6 +2064,495 @@ export class ButexTabulationPDFComponent {
         }
       ]
     }
+  ]
+
+  students: any[] = [
+    {
+      "studentUniqueId": "23010101001",
+      "studentName": " SAIFUR RAHMAN PALASH",
+      "totalCredit": 18.0,
+      "semesterGpa": "3.78",
+      "remarks": "Passed",
+      "subjects": [
+        {
+          "subjectId": 13,
+          "subjectCode": "CHEM 101",
+          "subjectOBECode": "CHEM 101-0531",
+          "subjectName": "Chemistry-1",
+          "subjectCredit": 3.0,
+          "beforeFinalMarks": 45.0,
+          "finalMarks": "70.0",
+          "totalMarks": "115.0",
+          "letterGrade": "A",
+          "gpa": "3.75",
+          "partAMarks": 35.0,
+          "partBMarks": 35.0,
+          "theory": true,
+          "lab": false
+        },
+        {
+          "subjectId": 12,
+          "subjectCode": "MATH 101",
+          "subjectOBECode": "MATH 101-0541",
+          "subjectName": "Mathematics-1",
+          "subjectCredit": 3.0,
+          "beforeFinalMarks": 43.0,
+          "finalMarks": "70.0",
+          "totalMarks": "113.0",
+          "letterGrade": "A",
+          "gpa": "3.75",
+          "partAMarks": 35.0,
+          "partBMarks": 35.0,
+          "theory": true,
+          "lab": false
+        },
+        {
+          "subjectId": 9,
+          "subjectCode": "PHY 101",
+          "subjectOBECode": "PHY 101-0533",
+          "subjectName": "Physics-1",
+          "subjectCredit": 3.0,
+          "beforeFinalMarks": 52.0,
+          "finalMarks": "84.0",
+          "totalMarks": "136.0",
+          "letterGrade": "A+",
+          "gpa": "4.0",
+          "partAMarks": 44.0,
+          "partBMarks": 40.0,
+          "theory": true,
+          "lab": false
+        },
+        {
+          "subjectId": 20,
+          "subjectCode": "ENG 101",
+          "subjectOBECode": "ENG 101-0231",
+          "subjectName": "Business and Communicative English",
+          "subjectCredit": 2.0,
+          "beforeFinalMarks": 27.0,
+          "finalMarks": "49.0",
+          "totalMarks": "76.0",
+          "letterGrade": "A",
+          "gpa": "3.75",
+          "partAMarks": 26.0,
+          "partBMarks": 23.0,
+          "theory": true,
+          "lab": false
+        },
+        {
+          "subjectId": 30,
+          "subjectCode": "YE 101",
+          "subjectOBECode": "YE 101-0723",
+          "subjectName": "Natural Textile Fibres",
+          "subjectCredit": 3.0,
+          "beforeFinalMarks": 48.0,
+          "finalMarks": "70.0",
+          "totalMarks": "118.0",
+          "letterGrade": "A",
+          "gpa": "3.75",
+          "partAMarks": 35.0,
+          "partBMarks": 35.0,
+          "theory": true,
+          "lab": false
+        },
+        {
+          "subjectId": 14,
+          "subjectCode": "CHEM 102",
+          "subjectOBECode": "CHEM 102-0531",
+          "subjectName": "Chemistry-I Lab",
+          "subjectCredit": 1.0,
+          "beforeFinalMarks": 35.5,
+          "finalMarks": "30.0",
+          "totalMarks": "66.0",
+          "letterGrade": "B+",
+          "gpa": "3.25",
+          "theory": false,
+          "lab": true
+        },
+        {
+          "subjectId": 21,
+          "subjectCode": "ENG 102",
+          "subjectOBECode": "ENG 102-0231",
+          "subjectName": "Business and Communicative English Lab",
+          "subjectCredit": 1.0,
+          "beforeFinalMarks": 46.5,
+          "finalMarks": "26.0",
+          "totalMarks": "73.0",
+          "letterGrade": "A-",
+          "gpa": "3.5",
+          "theory": false,
+          "lab": true
+        },
+        {
+          "subjectId": 11,
+          "subjectCode": "PHY 102",
+          "subjectOBECode": "PHY 102-0533",
+          "subjectName": "Physics -I Lab",
+          "subjectCredit": 1.0,
+          "beforeFinalMarks": 51.5,
+          "finalMarks": "28.0",
+          "totalMarks": "80.0",
+          "letterGrade": "A+",
+          "gpa": "4.0",
+          "theory": false,
+          "lab": true
+        },
+        {
+          "subjectId": 6,
+          "subjectCode": "IPE 104",
+          "subjectName": "Engineering Drawing (Practical)",
+          "subjectCredit": 1.0,
+          "beforeFinalMarks": 49.5,
+          "finalMarks": "35.0",
+          "totalMarks": "85.0",
+          "letterGrade": "A+",
+          "gpa": "4.0",
+          "theory": false,
+          "lab": true
+        }
+      ],
+      "viva": {},
+      "thesis": {},
+      "project": {},
+      "internship": {},
+      "industryAttachment": {},
+      "ciGiOfThisTerm": 68.0,
+      "semesterTotalCredit": 18.0,
+      "totalCreditsTakenUpToImmediatePastTerm": 0.0,
+      "totalCreditsTakenUpToThisTerm": 18.0,
+      "totalCreditsEarnedUpToImmediatePastTerm": 0.0,
+      "creditsEarnedFromRetakeSubjectsInThisTerm": 0.0,
+      "creditsEarnedFromRegularSubjectsInThisTerm": 18.0,
+      "totalCreditsEarnedUpToThisTerm": 18.0,
+      "totalMarksEarnedUpToImmediatePastTerm": 0.0,
+      "marksEarnedFromRetakeSubjectsInThisTerm": 0.0,
+      "marksEarnedFromRegularSubjectsInThisTerm": 862.0,
+      "totalMarksEarnedUpToThisTerm": 862.0,
+      "ciGiUpToImmediatePastTerm": 0.0,
+      "ciGiOfRetakeSubject": 0.0,
+      "ciGiUpToThisTerm": 68.0,
+      "appearedCourses": [
+        {
+          "id": 6,
+          "subjectCode": "IPE 104",
+          "name": "Engineering Drawing (Practical)",
+          "numberOfCredits": 1.0,
+          "theory": false,
+          "lab": true,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 100.0
+        },
+        {
+          "id": 20,
+          "subjectCode": "ENG 101",
+          "subjectOBECode": "ENG 101-0231",
+          "name": "Business and Communicative English",
+          "numberOfCredits": 2.0,
+          "theory": true,
+          "lab": false,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 100.0,
+          "labSubjectId": 21
+        },
+        {
+          "id": 13,
+          "subjectCode": "CHEM 101",
+          "subjectOBECode": "CHEM 101-0531",
+          "name": "Chemistry-1",
+          "numberOfCredits": 3.0,
+          "theory": true,
+          "lab": false,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 150.0,
+          "labSubjectId": 14
+        },
+        {
+          "id": 9,
+          "subjectCode": "PHY 101",
+          "subjectOBECode": "PHY 101-0533",
+          "name": "Physics-1",
+          "numberOfCredits": 3.0,
+          "theory": true,
+          "lab": false,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 150.0,
+          "labSubjectId": 11
+        },
+        {
+          "id": 12,
+          "subjectCode": "MATH 101",
+          "subjectOBECode": "MATH 101-0541",
+          "name": "Mathematics-1",
+          "numberOfCredits": 3.0,
+          "theory": true,
+          "lab": false,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 150.0
+        },
+        {
+          "id": 30,
+          "subjectCode": "YE 101",
+          "subjectOBECode": "YE 101-0723",
+          "name": "Natural Textile Fibres",
+          "numberOfCredits": 3.0,
+          "theory": true,
+          "lab": false,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 150.0
+        },
+        {
+          "id": 21,
+          "subjectCode": "ENG 102",
+          "subjectOBECode": "ENG 102-0231",
+          "name": "Business and Communicative English Lab",
+          "numberOfCredits": 1.0,
+          "theory": false,
+          "lab": true,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 100.0
+        },
+        {
+          "id": 14,
+          "subjectCode": "CHEM 102",
+          "subjectOBECode": "CHEM 102-0531",
+          "name": "Chemistry-I Lab",
+          "numberOfCredits": 1.0,
+          "theory": false,
+          "lab": true,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 100.0
+        },
+        {
+          "id": 11,
+          "subjectCode": "PHY 102",
+          "subjectOBECode": "PHY 102-0533",
+          "name": "Physics -I Lab",
+          "numberOfCredits": 1.0,
+          "theory": false,
+          "lab": true,
+          "project": false,
+          "thesis": false,
+          "internship": false,
+          "industryAttachment": false,
+          "viva": false,
+          "fullMarks": 100.0
+        }
+      ],
+      "firstAdmissionYear": "2023",
+      "accumulatedSubjects": [
+        {
+          "mainSubjectName": "Natural Textile Fibres",
+          "subjectId": 30,
+          "subjectCode": "YE 101",
+          "partialSubjects": [],
+          "finalSubjectTabulationSheetDTO": {
+            "subjectId": 30,
+            "subjectCode": "YE 101",
+            "subjectOBECode": "YE 101-0723",
+            "subjectName": "Natural Textile Fibres",
+            "subjectCredit": 3.0,
+            "beforeFinalMarks": 48.0,
+            "finalMarks": "70.0",
+            "totalMarks": "118.0",
+            "letterGrade": "A",
+            "gpa": "3.75",
+            "partAMarks": 35.0,
+            "partBMarks": 35.0,
+            "theory": true,
+            "lab": false
+          }
+        },
+        {
+          "mainSubjectName": "Business and Communicative English",
+          "partialSubjects": [
+            {
+              "subjectId": 20,
+              "subjectName": "Business and Communicative English",
+              "subjectCode": "ENG 101",
+              "finalSubjectTabulationSheetDTO": {
+                "subjectId": 20,
+                "subjectCode": "ENG 101",
+                "subjectOBECode": "ENG 101-0231",
+                "subjectName": "Business and Communicative English",
+                "subjectCredit": 2.0,
+                "beforeFinalMarks": 27.0,
+                "finalMarks": "49.0",
+                "totalMarks": "76.0",
+                "letterGrade": "A",
+                "gpa": "3.75",
+                "partAMarks": 26.0,
+                "partBMarks": 23.0,
+                "theory": true,
+                "lab": false
+              }
+            },
+            {
+              "subjectId": 21,
+              "subjectName": "Business and Communicative English Lab",
+              "subjectCode": "ENG 102",
+              "finalSubjectTabulationSheetDTO": {
+                "subjectId": 21,
+                "subjectCode": "ENG 102",
+                "subjectOBECode": "ENG 102-0231",
+                "subjectName": "Business and Communicative English Lab",
+                "subjectCredit": 1.0,
+                "beforeFinalMarks": 46.5,
+                "finalMarks": "26.0",
+                "totalMarks": "73.0",
+                "letterGrade": "A-",
+                "gpa": "3.5",
+                "theory": false,
+                "lab": true
+              }
+            }
+          ]
+        },
+        {
+          "mainSubjectName": "Physics-1",
+          "partialSubjects": [
+            {
+              "subjectId": 9,
+              "subjectName": "Physics-1",
+              "subjectCode": "PHY 101",
+              "finalSubjectTabulationSheetDTO": {
+                "subjectId": 9,
+                "subjectCode": "PHY 101",
+                "subjectOBECode": "PHY 101-0533",
+                "subjectName": "Physics-1",
+                "subjectCredit": 3.0,
+                "beforeFinalMarks": 52.0,
+                "finalMarks": "84.0",
+                "totalMarks": "136.0",
+                "letterGrade": "A+",
+                "gpa": "4.0",
+                "partAMarks": 44.0,
+                "partBMarks": 40.0,
+                "theory": true,
+                "lab": false
+              }
+            },
+            {
+              "subjectId": 11,
+              "subjectName": "Physics -I Lab",
+              "subjectCode": "PHY 102",
+              "finalSubjectTabulationSheetDTO": {
+                "subjectId": 11,
+                "subjectCode": "PHY 102",
+                "subjectOBECode": "PHY 102-0533",
+                "subjectName": "Physics -I Lab",
+                "subjectCredit": 1.0,
+                "beforeFinalMarks": 51.5,
+                "finalMarks": "28.0",
+                "totalMarks": "80.0",
+                "letterGrade": "A+",
+                "gpa": "4.0",
+                "theory": false,
+                "lab": true
+              }
+            }
+          ]
+        },
+        {
+          "mainSubjectName": "Chemistry-1",
+          "partialSubjects": [
+            {
+              "subjectId": 13,
+              "subjectName": "Chemistry-1",
+              "subjectCode": "CHEM 101",
+              "finalSubjectTabulationSheetDTO": {
+                "subjectId": 13,
+                "subjectCode": "CHEM 101",
+                "subjectOBECode": "CHEM 101-0531",
+                "subjectName": "Chemistry-1",
+                "subjectCredit": 3.0,
+                "beforeFinalMarks": 45.0,
+                "finalMarks": "70.0",
+                "totalMarks": "115.0",
+                "letterGrade": "A",
+                "gpa": "3.75",
+                "partAMarks": 35.0,
+                "partBMarks": 35.0,
+                "theory": true,
+                "lab": false
+              }
+            },
+            {
+              "subjectId": 14,
+              "subjectName": "Chemistry-I Lab",
+              "subjectCode": "CHEM 102",
+              "finalSubjectTabulationSheetDTO": {
+                "subjectId": 14,
+                "subjectCode": "CHEM 102",
+                "subjectOBECode": "CHEM 102-0531",
+                "subjectName": "Chemistry-I Lab",
+                "subjectCredit": 1.0,
+                "beforeFinalMarks": 35.5,
+                "finalMarks": "30.0",
+                "totalMarks": "66.0",
+                "letterGrade": "B+",
+                "gpa": "3.25",
+                "theory": false,
+                "lab": true
+              }
+            }
+          ]
+        },
+        {
+          "mainSubjectName": "Mathematics-1",
+          "subjectId": 12,
+          "subjectCode": "MATH 101",
+          "partialSubjects": [],
+          "finalSubjectTabulationSheetDTO": {
+            "subjectId": 12,
+            "subjectCode": "MATH 101",
+            "subjectOBECode": "MATH 101-0541",
+            "subjectName": "Mathematics-1",
+            "subjectCredit": 3.0,
+            "beforeFinalMarks": 43.0,
+            "finalMarks": "70.0",
+            "totalMarks": "113.0",
+            "letterGrade": "A",
+            "gpa": "3.75",
+            "partAMarks": 35.0,
+            "partBMarks": 35.0,
+            "theory": true,
+            "lab": false
+          }
+        }
+      ]
+    },
+
   ]
 
 
