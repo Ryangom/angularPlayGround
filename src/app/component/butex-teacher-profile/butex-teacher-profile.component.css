@@ -1,0 +1,73 @@
+/* Container for the entire profile section */
+.profileSidebar {
+    width: 300px;
+    border-right: 1px solid #cccccc79;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+}
+
+/* Profile picture section */
+.profilePicSection {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profilePicSection h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.profilePic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profilePic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile links (sidebar navigation) */
+.profileLinks ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profileLinks li {
+    margin: 10px 0;
+}
+
+.profileLinks li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #666;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.profileLinks li.active a {
+    background-color: #ff7f50;
+    /* Coral color for active link */
+    color: #fff;
+}
+
+.profileLinks li a:hover {
+    background-color: #ffa07a;
+    /* Lighter coral on hover */
+    color: #fff;
+}
+
+.profileContent {
+    padding: 1em;
+}

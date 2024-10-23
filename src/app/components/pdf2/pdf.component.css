@@ -1,0 +1,70 @@
+.room-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: #000000;
+    color: white;
+    border-radius: 5px;
+}
+
+.room-section {
+    display: flex;
+    gap: 2em;
+}
+
+.room {
+    width: 25%;
+}
+
+
+.room-head i {
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+.room-head i:hover {
+    transition: all 0.5s ease-in-out;
+    color: #b6b6b6;
+}
+
+.room-body {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 1em;
+    justify-content: start;
+    align-items: center;
+    padding: 1em;
+    background-color: #e8e8e8;
+    width: 100%;
+}
+
+.room-body span {
+    padding: 1em;
+    background-color: #fff;
+    width: 40%;
+    margin: 0.5em;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.room-col-3 {
+    width: 50% !important;
+    background-color: aquamarine;
+}
+
+.room-col-3 .room-body span {
+    width: 20%;
+}
+
+
+/* active */
+.room-body--active span {
+    background-color: #66fd98;
+}
+
+/* close */
+.room-body--close span {
+    background-color: #dd4747;
+}

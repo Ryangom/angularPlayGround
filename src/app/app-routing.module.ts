@@ -8,9 +8,10 @@ import { StudentDashComponent } from './pages/student/student-dash/student-dash.
 import { ProfileComponent } from './pages/student/profile/profile.component';
 import { ChangePasswordComponent } from './pages/student/change-password/change-password.component';
 import { PaymentLedgerSummaryComponent } from './pages/student/payment-ledger-summary/payment-ledger-summary.component';
+import { PdfComponent } from './components/pdf2/pdf.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
+  { path: '', component: PdfComponent, data: { breadcrumb: 'Home' } },
   { path: 'about', component: AboutComponent, data: { breadcrumb: 'About' } },
   { path: 'service', component: AboutComponent, data: { breadcrumb: 'About' } },
   { path: 'logout1', component: AboutComponent, data: { breadcrumb: 'About' } },

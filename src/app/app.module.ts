@@ -20,6 +20,12 @@ import { PaymentLedgerSummaryComponent } from './pages/student/payment-ledger-su
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButexTabulationPDFComponent } from './pages/butex-tabulation-pdf/butex-tabulation-pdf.component';
+import { StepperFormComponent } from './components/stepper-form/stepper-form.component';
+
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ButexTeacherProfileComponent } from './component/butex-teacher-profile/butex-teacher-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +44,19 @@ import { ButexTabulationPDFComponent } from './pages/butex-tabulation-pdf/butex-
     ContainerComponent,
     PaymentLedgerSummaryComponent,
     DynamicFormComponent,
-    ButexTabulationPDFComponent
+    ButexTabulationPDFComponent,
+    StepperFormComponent,
+    ButexTeacherProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatStepperModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

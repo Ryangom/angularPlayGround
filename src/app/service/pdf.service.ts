@@ -388,7 +388,145 @@ export class PdfService {
     console.log(data);
 
     let arr = [1, 2, 3, 4, 5, 7, 7, 9];
+    const generateTable = (items: any) => {
+      const tableHeader = [
+        {
+          text: "Name of Student",
+          fontSize: 10,
+          rowSpan: 3,
+        },
+        {
+          text: "Class Roll",
+          fontSize: 10,
+          rowSpan: 3,
+        },
+        {
+          text: "Number of Classes",
+          fontSize: 10,
+          colSpan: items[0].attendanceDTOS.length,
+          alignment: "center",
+          bold: true,
+        },
+        ...items[0].attendanceDTOS
+          .slice(1, items[0].attendanceDTOS.length)
+          .map(() => {
+            return {};
+          }),
+        {
+          text: "Total Classes",
+          fontSize: 10,
+          bold: true,
+          alignment: "center",
+          rowSpan: 3,
+        },
+        {
+          text: "%",
+          fontSize: 10,
+          bold: true,
+          alignment: "center",
+          rowSpan: 3,
+        },
+        {
+          text: "Remarks",
+          fontSize: 10,
+          bold: true,
+          rowSpan: 3,
+        },
+      ];
+      const tableHeaderTwo = [
+        {},
+        {},
+        ...items[0].attendanceDTOS.map((_: any, i: any) => {
+          return {
+            text: i + 1,
+            fontSize: 10,
+            bold: true,
+            alignment: "center",
+          };
+        }),
+        {},
+        {},
+        {},
+      ];
+      const tableHeaderThree = [
+        {},
+        {},
+        ...items[0].attendanceDTOS.map((item: any) => {
+          const date = new Date(item?.attendanceDate);
+          const day = date.getDate(); // e.g., 10
+          const month = date.getMonth() + 1; // e.g., 10 (note: getMonth() returns 0-11, so add 1)
+          const year = date.getFullYear().toString().slice(-2); // e.g., '24' for the year 2024
 
+          return {
+            alignment: 'right',
+            stack: [
+              { text: day, fontSize: 8, bold: true, alignment: 'center' },
+              { text: '-', fontSize: 8, bold: true, alignment: 'center' },
+              { text: month, fontSize: 8, bold: true, alignment: 'center' },
+              { text: '-', fontSize: 8, bold: true, alignment: 'center' },
+              { text: year, fontSize: 8, bold: true, alignment: 'center' }
+            ]
+          };
+        }),
+        {},
+        {},
+        {},
+      ];
+      const tableRows = items.map((item: any) => {
+        return [
+          {
+            text: item.studentName,
+            fontSize: 10,
+          },
+          {
+            text: item.studentUniqueId,
+            fontSize: 10,
+          },
+          ...item.attendanceDTOS.map((attendance: any) => {
+            return {
+              text: `${attendance.present ? "P" : "A"}`,
+              fontSize: 10,
+              bold: true,
+              color: `${attendance.present ? "green" : "red"}`,
+            };
+          }),
+          {
+            text: `${item.totalClass}`,
+            fontSize: 10,
+            alignment: "center",
+          },
+          {
+            text: `${item.percentage.toFixed(2)}%`,
+            fontSize: 10,
+            alignment: "center",
+          },
+          {
+            text: ``,
+            fontSize: 10,
+          },
+        ];
+      });
+      return {
+        table: {
+          headerRows: 2,
+          widths: [
+            60,
+            40,
+            ...items[0].attendanceDTOS.map(() => "*"),
+            40,
+            35,
+            40,
+          ],
+          body: [
+            tableHeader,
+            tableHeaderTwo,
+            tableHeaderThree,
+            ...tableRows,
+          ],
+          margin: [0, 30, 0, 0],
+        },
+      };
+    };
 
 
 
@@ -427,5 +565,339 @@ export class PdfService {
       .createPdf(docDefinition)
       .open();
   }
+
+
+
+  //   attendanceReport(data: any): void {
+  //     const generateTable = (items: any) => {
+  //         const tableHeader = [
+  //             {
+  //                 text: "Name of Student",
+  //                 fontSize: 10,
+  //                 rowSpan: 3,
+  //             },
+  //             {
+  //                 text: "Class Roll",
+  //                 fontSize: 10,
+  //                 rowSpan: 3,
+  //             },
+  //             {
+  //                 text: "Number of Classes",
+  //                 fontSize: 10,
+  //                 colSpan: items[0].attendanceDTOS.length,
+  //                 alignment: "center",
+  //                 bold: true,
+  //             },
+  //             ...items[0].attendanceDTOS
+  //                 .slice(1, items[0].attendanceDTOS.length)
+  //                 .map(() => {
+  //                     return {};
+  //                 }),
+  //             {
+  //                 text: "Total Classes",
+  //                 fontSize: 10,
+  //                 bold: true,
+  //                 alignment: "center",
+  //                 rowSpan: 3,
+  //             },
+  //             {
+  //                 text: "%",
+  //                 fontSize: 10,
+  //                 bold: true,
+  //                 alignment: "center",
+  //                 rowSpan: 3,
+  //             },
+  //             {
+  //                 text: "Remarks",
+  //                 fontSize: 10,
+  //                 bold: true,
+  //                 rowSpan: 3,
+  //             },
+  //         ];
+  //         const tableHeaderTwo = [
+  //             {},
+  //             {},
+  //             ...items[0].attendanceDTOS.map((_, i) => {
+  //                 return {
+  //                     text: i + 1,
+  //                     fontSize: 10,
+  //                     bold: true,
+  //                     alignment: "center",
+  //                 };
+  //             }),
+  //             {},
+  //             {},
+  //             {},
+  //         ];
+  //         const tableHeaderThree = [
+  //             {},
+  //             {},
+  //             ...items[0].attendanceDTOS.map((item) => {
+  //                 const date = new Date(item?.attendanceDate);
+  //                 const day = date.getDate(); // e.g., 10
+  //                 const month = date.getMonth() + 1; // e.g., 10 (note: getMonth() returns 0-11, so add 1)
+  //                 const year = date.getFullYear().toString().slice(-2); // e.g., '24' for the year 2024
+
+  //                 return {
+  //                     alignment: 'right',
+  //                     stack: [
+  //                         { text: day, fontSize: 8, bold: true, alignment: 'center' },
+  //                         { text: '-', fontSize: 8, bold: true, alignment: 'center' },
+  //                         { text: month, fontSize: 8, bold: true, alignment: 'center' },
+  //                         { text: '-', fontSize: 8, bold: true, alignment: 'center' },
+  //                         { text: year, fontSize: 8, bold: true, alignment: 'center' }
+  //                     ]
+  //                 };
+  //             }),
+  //             {},
+  //             {},
+  //             {},
+  //         ];
+  //         const tableRows = items.map((item: any) => {
+  //             return [
+  //                 {
+  //                     text: item.studentName,
+  //                     fontSize: 10,
+  //                 },
+  //                 {
+  //                     text: item.studentUniqueId,
+  //                     fontSize: 10,
+  //                 },
+  //                 ...item.attendanceDTOS.map((attendance) => {
+  //                     return {
+  //                         text: `${attendance.present ? "P" : "A"}`,
+  //                         fontSize: 10,
+  //                         bold: true,
+  //                         color: `${attendance.present ? "green" : "red"}`,
+  //                     };
+  //                 }),
+  //                 {
+  //                     text: `${item.totalClass}`,
+  //                     fontSize: 10,
+  //                     alignment: "center",
+  //                 },
+  //                 {
+  //                     text: `${item.percentage.toFixed(2)}%`,
+  //                     fontSize: 10,
+  //                     alignment: "center",
+  //                 },
+  //                 {
+  //                     text: ``,
+  //                     fontSize: 10,
+  //                 },
+  //             ];
+  //         });
+  //         return {
+  //             table: {
+  //                 headerRows: 2,
+  //                 widths: [
+  //                     60,
+  //                     40,
+  //                     ...items[0].attendanceDTOS.map(() => "*"),
+  //                     40,
+  //                     35,
+  //                     40,
+  //                 ],
+  //                 body: [
+  //                     tableHeader,
+  //                     tableHeaderTwo,
+  //                     tableHeaderThree,
+  //                     ...tableRows,
+  //                 ],
+  //                 margin: [0, 30, 0, 0],
+  //             },
+  //         };
+  //     };
+  //     const docDefinition = {
+  //         pageSize: "LEGAL",
+  //         pageOrientation: "landscape",
+  //         pageMargins: [20, 140, 20, 40],
+  //         content: [
+  //             {
+  //                 columns: [
+  //                     {
+  //                         width: "*",
+  //                         text: `Session: ${data.yearOfStudy}`,
+  //                     },
+  //                     {
+  //                         width: "*",
+  //                         text: `Year: ${data.year}`,
+  //                     },
+  //                     {
+  //                         width: "*",
+  //                         text: `Semester: ${data.semester}`,
+  //                     },
+  //                     {
+  //                         width: "*",
+  //                         text: `Department: ${data.department}`,
+  //                     },
+  //                 ],
+  //                 columnGap: 10,
+  //             },
+  //             {
+  //                 columns: [
+  //                     {
+  //                         width: "*",
+  //                         text: `Name of Teacher: ${data.teacher}`,
+  //                     },
+  //                     {
+  //                         width: "*",
+  //                         text: `Course Number: ${data.subjectCode}`,
+  //                     },
+  //                     {
+  //                         width: "*",
+  //                         text: `Course Title: ${data.subjectName}`,
+  //                     },
+  //                     {
+  //                         width: "*",
+  //                         text: ``,
+  //                     },
+  //                 ],
+  //                 columnGap: 10,
+  //                 margin: [0, 10, 0, 10],
+  //             },
+  //             generateTable(data?.studentDTOS),
+  //             {
+  //                 alignment: "right",
+  //                 bold: true,
+  //                 margin: [0, 40, 20, 0],
+  //                 decoration: "overline",
+  //                 text: "Signature of the Course Teacher",
+  //             },
+  //         ],
+  //         defaultStyle: {
+  //             font: "Times",
+  //         },
+  //     };
+
+  //     pdfMake
+  //         .createPdf(docDefinition)
+  //         .download(
+  //             `${data.teacher}-${data.yearOfStudy}-${data.subjectName}-attendance-report.pdf`
+  //         );
+  // }
+
+
+
+  attendancePercentage(data: any) {
+    console.log(data);
+
+
+    const generateTable = (items: any) => {
+      // Extract unique students from the subjects list
+      const students = items[0].students.map((student: any, index: number) => ({
+        sno: index + 1,
+        studentUniqueId: student.studentUniqueId,
+      }));
+
+      // Create table headers: Sno, Student ID, each subject code, and Remarks
+      const tableHeader = [
+        {
+          text: "Sno",
+          fontSize: 10,
+          bold: true,
+          alignment: "center",
+        },
+        {
+          text: "Student ID",
+          fontSize: 10,
+          bold: true,
+          alignment: "center",
+        },
+        ...items.map((subject: any) => ({
+          text: subject.subjectCode,
+          fontSize: 10,
+          bold: true,
+          alignment: "center",
+        })),
+        {
+          text: "Remarks",
+          fontSize: 10,
+          bold: true,
+          alignment: "center",
+        },
+      ];
+
+      // Generate rows for each student
+      const tableRows = students.map((student: any) => {
+        // For each student, map their attendance across all subjects
+        const attendanceData = items.map((subject: any) => {
+          const studentData = subject.students.find(
+            (s: any) => s.studentUniqueId === student.studentUniqueId
+          );
+          return {
+            text: studentData.attendancePercentage.toFixed(2) + '%',
+            fontSize: 10,
+            alignment: "center",
+            color: studentData.attendancePercentage < 40 ? "red" : "black",
+          };
+        });
+
+        // Gather remarks from the last subject, or leave empty if no remarks
+        const remarks = items[items.length - 1].students.find(
+          (s: any) => s.studentUniqueId === student.studentUniqueId
+        )?.remarks || "";
+
+        return [
+          {
+            text: `${student.sno}`,
+            fontSize: 10,
+            alignment: "center",
+          },
+          {
+            text: student.studentUniqueId,
+            fontSize: 10,
+            alignment: "center",
+          },
+          ...attendanceData,
+          {
+            text: remarks,
+            fontSize: 10,
+            alignment: "center",
+            color: remarks.includes("Below 40%") ? "red" : "black",
+          },
+        ];
+      });
+
+      return {
+        table: {
+          headerRows: 1,
+          widths: [
+            30, // Width for "Sno"
+            60, // Width for "Student ID"
+            ...items.map(() => '*'), // Width for each subject's attendance column
+            100, // Width for "Remarks"
+          ],
+          body: [
+            tableHeader,
+            ...tableRows,
+          ],
+        },// Optional: adds horizontal lines between rows
+      };
+    };
+
+    const docDefinition: any = {
+      pageSize: "LEGAL",
+      pageOrientation: "landscape",
+      pageMargins: [20, 140, 20, 40],
+
+      content: [
+
+        generateTable(data.subjects),
+
+
+      ],
+
+    };
+
+    pdfMake
+      .createPdf(docDefinition)
+      .open();
+
+
+
+  }
+
+
 
 }

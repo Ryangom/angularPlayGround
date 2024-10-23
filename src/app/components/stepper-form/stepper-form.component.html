@@ -1,0 +1,55 @@
+<mat-horizontal-stepper [linear]="true">
+    <mat-step>
+        <form [formGroup]="firstFormGroup" (ngSubmit)="nextStep()">
+            <ng-template matStepLabel>Step 1: Basic Info</ng-template>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required />
+            </mat-form-field>
+
+            <div>
+                <button mat-button type="submit" [disabled]="!firstFormGroup.valid">Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <form [formGroup]="secondFormGroup" (ngSubmit)="nextStep()">
+            <ng-template matStepLabel>Step 2: Address</ng-template>
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" required />
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button type="submit" [disabled]="!secondFormGroup.valid">Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <form [formGroup]="thirdFormGroup" (ngSubmit)="onSubmit()">
+            <ng-template matStepLabel>Step 3: Feedback</ng-template>
+            <mat-form-field>
+                <mat-label>Feedback</mat-label>
+                <textarea matInput formControlName="feedback" required></textarea>
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button type="submit">Submit</button>
+            </div>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>

@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectorRef } from '@angular/core';
+import Swiper from 'swiper';
 
 
 @Component({
@@ -8,6 +9,49 @@ import { Component, Input, ChangeDetectorRef } from '@angular/core';
 })
 export class AboutComponent {
   isHambargerOpen: boolean = false
+
+
+
+
+  cards = [
+    { title: 'Card 1', content: 'Content for card 1' },
+    { title: 'Card 2', content: 'Content for card 2' },
+    { title: 'Card 3', content: 'Content for card 3' },
+    { title: 'Card 4', content: 'Content for card 4' },
+    { title: 'Card 5', content: 'Content for card 5' },
+    { title: 'Card 6', content: 'Content for card 6' }
+  ];
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      console.log('Initializing Swiper...');
+      const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        slidesPerGroup: 1,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+      console.log(swiper);
+    }, 100);
+  }
+
+
+
+
+
+
 
   // menuParent: String = '';
   // @Input() menuData: any[] = [];
