@@ -199,6 +199,257 @@ export class PayrollButexService {
 
   // প্রত্যয়ন পত্র
 
+
+  mergeStudentData(semesterResultDTOS: any[]): any[] {
+    const mergedStudents: { [key: string]: any } = {};
+
+    semesterResultDTOS.forEach((semesterData: any) => {
+      semesterData.students.forEach((student: any) => {
+        const studentId = student.studentUniqueId;
+
+        if (!mergedStudents[studentId]) {
+          mergedStudents[studentId] = {
+            studentUniqueId: studentId,
+            studentName: student.studentName,
+            subjects: []
+          };
+        }
+
+        // Add all subjects from this semester to the student
+        mergedStudents[studentId].subjects.push(...student.subjects);
+      });
+    });
+
+    // Convert the merged students object to an array
+    return Object.values(mergedStudents);
+  }
+
+
+  test(data: any = {}) {
+
+
+
+    // const generateTable = (items: any) => {
+    //   const tableHeader = [
+    //     { text: "Roll No", alignment: "center" },
+    //     ...items.semesterResultDTOS.flatMap((item: any) => [
+    //       { text: '1st', alignment: "center", colSpan: 5 },
+    //       {}, {}, {}, {}, {}
+    //     ])
+
+
+
+    //     // { text: "", alignment: "center" },
+
+    //     // { text: '1st', alignment: "center", colSpan: 5 },
+    //     // {}, {}, {}, {}, {}
+
+
+
+    //   ];
+
+
+
+    //   // let tableRows = [
+    //   //   [
+    //   //     { text: '1', fontSize: 9, alignment: "center", },
+    //   //     { text: '2', fontSize: 9, alignment: "center", },
+    //   //     { text: '2', fontSize: 9, alignment: "center", },
+    //   //     { text: '2', fontSize: 9, alignment: "center", },
+    //   //   ],
+
+    //   // ]
+
+    //   console.log(tableHeader);
+
+
+
+
+    //   return {
+    //     table: {
+    //       // body: [tableHeader, ...tableRows],
+    //       body: [
+    //         [
+    //           { text: "Roll No", alignment: "center" },
+    //           ...items.semesterResultDTOS.flatMap((item: any) => [
+    //             { text: `${item.semester}`, alignment: "center", colSpan: 5 },
+    //             {}, {}, {}, {}, {}
+    //           ])
+    //         ],
+    //         [
+    //           { text: '1' },
+    //           { text: '2' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //           { text: '1' },
+    //           { text: '2' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //           { text: '3' },
+    //         ],
+    //       ],
+    //       margin: [20, 0, 20, 0],
+    //     },
+    //   };
+    // };
+
+
+    // const generateTable = (items: any) => {
+    //   const tableHeader = [
+    //     { text: "Roll No", alignment: "center" },
+    //     ...items.semesterResultDTOS.flatMap((item: any) => [
+    //       { text: `${item.semester}`, alignment: "center", colSpan: 6 },
+    //       {}, {}, {}, {}, {}
+    //     ]),
+    //   ];
+
+    //   const subHeader = items.semesterResultDTOS[0].students.map((student: any) => [
+    //     { text: "", alignment: "center" }, // Empty cell for 'Roll No' column
+    //     ...items.semesterResultDTOS.flatMap((item: any) =>
+    //       item.students[0].subjects.map((subject: any) => ({
+    //         text: subject.subjectCode, alignment: "center", fontSize: 9
+    //       }))
+    //     ),
+    //   ]);
+
+    //   const tableRows = items.semesterResultDTOS[0].students.map((student: any) => [
+    //     { text: student.studentUniqueId, alignment: "center" }, // Roll No
+    //     ...items.semesterResultDTOS.flatMap((item: any) =>
+    //       item.students[0].subjects.map((subject: any) => ({
+    //         text: subject.subjectGpa.toFixed(1), // GPA for each subject
+    //         alignment: "center",
+    //         fontSize: 9
+    //       }))
+    //     ),
+    //   ]);
+
+
+
+
+
+    //   console.log(tableHeader, tableRows);
+
+
+
+    //   return {
+    //     table: {
+    //       headerRows: 1,
+    //       body: [
+    //         tableHeader,
+    //         subHeader,  // Header row
+    //         ...tableRows  // Student rows
+    //       ],
+    //       margin: [20, 0, 20, 0],
+    //     },
+    //   };
+    // };
+
+
+
+    const generateTable = (items: any) => {
+      const tableHeader = [
+        { text: "Roll No", alignment: "center" },
+        ...items.semesterResultDTOS.flatMap((item: any) => {
+          const subjectsCount = item.students[0]?.subjects.length || 0;
+          return [
+            { text: `${item.semester}`, alignment: "center", colSpan: subjectsCount },
+            // {},
+            // {},
+            ...Array(subjectsCount - 1).fill({}) // Empty cells to match colSpan
+          ];
+        }),
+      ];
+
+      const subHeader = [
+        { text: "", alignment: "center" },
+        ...items.semesterResultDTOS.flatMap((item: any) => {
+          const subjects = item.students[0]?.subjects || [];
+          return [
+            ...subjects.map((subject: any) => ({
+              text: subject.subjectCode, alignment: "center", fontSize: 9
+            })),
+            // { text: `GPA\n(${item.creditOfSemester}cr)`, alignment: "center" },
+            // { text: "∑GP×CR", alignment: "center" }
+          ];
+        })
+      ];
+
+
+
+      const tableRows = this.mergeStudentData(items.semesterResultDTOS).map((student: any) => {
+        const row = [
+          { text: student.studentName, alignment: "center" },
+          ...student.subjects.map((subject: any) => ({
+            text: subject.subjectGpa !== undefined ? subject.subjectGpa.toFixed(1) : 'N/A',
+            alignment: "center",
+            fontSize: 9,
+          })),
+
+        ];
+
+        return row; // Return the complete row for the student
+      });
+
+
+      console.log(tableHeader, subHeader, tableRows);
+
+
+
+
+
+
+      return {
+        table: {
+          headerRows: 2,
+          body: [
+            tableHeader,
+            subHeader,
+            ...tableRows
+          ],
+          margin: [20, 0, 20, 0],
+        },
+      };
+    };
+
+
+
+
+    const docDefinition: any = {
+      pageSize: 'A2',
+      pageOrientation: 'landscape',
+      pageMargins: [40, 130, 30, 0],
+      header: () => {
+        return [
+          ...this.pdfHeader(),
+        ];
+      },
+
+
+      content: [
+
+        generateTable(data),
+
+      ],
+      styles: {
+        header: {
+          fontSize: 14,
+          bold: true,
+          alignment: 'center',
+          margin: [0, 10, 0, 10]
+        }
+      }
+
+    };
+
+    pdfMake
+      .createPdf(docDefinition)
+      .open();
+  }
   protounPotro(data: any = {}) {
     const docDefinition: any = {
       pageSize: 'A4',
