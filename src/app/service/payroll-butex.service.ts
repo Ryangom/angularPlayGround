@@ -206,17 +206,25 @@ export class PayrollButexService {
     semesterResultDTOS.forEach((semesterData: any) => {
       semesterData.students.forEach((student: any) => {
         const studentId = student.studentUniqueId;
+        // console.log(student, 'a');
 
         if (!mergedStudents[studentId]) {
           mergedStudents[studentId] = {
             studentUniqueId: studentId,
             studentName: student.studentName,
-            subjects: []
+            subjects: [],
+            gpandCR: student.gpandCR,
           };
         }
 
         // Add all subjects from this semester to the student
         mergedStudents[studentId].subjects.push(...student.subjects);
+        mergedStudents[studentId].subjects.push({
+          subjectGpa: student.semesterCredits,
+        });
+        mergedStudents[studentId].subjects.push({
+          subjectGpa: student.gpandCR,
+        });
       });
     });
 
@@ -224,7 +232,7 @@ export class PayrollButexService {
     return Object.values(mergedStudents);
   }
 
-
+  // 8 semester result cou
   test(data: any = {}) {
 
 
@@ -357,9 +365,9 @@ export class PayrollButexService {
         ...items.semesterResultDTOS.flatMap((item: any) => {
           const subjectsCount = item.students[0]?.subjects.length || 0;
           return [
-            { text: `${item.semester}`, alignment: "center", colSpan: subjectsCount },
-            // {},
-            // {},
+            { text: `${item.semester}`, alignment: "center", colSpan: subjectsCount + 2 },
+            {},
+            {},
             ...Array(subjectsCount - 1).fill({}) // Empty cells to match colSpan
           ];
         }),
@@ -373,8 +381,8 @@ export class PayrollButexService {
             ...subjects.map((subject: any) => ({
               text: subject.subjectCode, alignment: "center", fontSize: 9
             })),
-            // { text: `GPA\n(${item.creditOfSemester}cr)`, alignment: "center" },
-            // { text: "∑GP×CR", alignment: "center" }
+            { text: `GPA\n(${item.creditOfSemester}cr)`, alignment: "center" },
+            { text: "∑GP×CR", alignment: "center" }
           ];
         })
       ];
@@ -396,7 +404,7 @@ export class PayrollButexService {
       });
 
 
-      console.log(tableHeader, subHeader, tableRows);
+      console.log(tableHeader, tableRows);
 
 
 
