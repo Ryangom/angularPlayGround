@@ -26,6 +26,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ButexTeacherProfileComponent } from './component/butex-teacher-profile/butex-teacher-profile.component';
+import { ButexApplicantComponent } from './component/butex-applicant/butex-applicant.component';
+import { ButexAdmissionRulebookUpdateComponent } from './component/butex-admission-rulebook-update/butex-admission-rulebook-update.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { ButexTeacherProfileComponent } from './component/butex-teacher-profile/
     DynamicFormComponent,
     ButexTabulationPDFComponent,
     StepperFormComponent,
-    ButexTeacherProfileComponent
+    ButexTeacherProfileComponent,
+    ButexApplicantComponent,
+    ButexAdmissionRulebookUpdateComponent
   ],
   imports: [
     BrowserModule,

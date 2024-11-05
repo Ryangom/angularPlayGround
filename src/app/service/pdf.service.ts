@@ -897,6 +897,87 @@ export class PdfService {
 
 
   }
+  tabelTesting(data: any = {}) {
+    console.log(data);
+
+
+
+    const docDefinition: any = {
+      pageSize: "LEGAL",
+      // pageOrientation: "landscape",
+      pageMargins: [20, 140, 20, 40],
+
+      content: [
+        {
+          table: {
+            body: [
+              [
+                { text: 'month', bold: true, alignment: 'center', rowSpan: 3 },
+                { text: 'prpti', colSpan: 2 },
+                { text: '', },
+                { text: 'korton', colSpan: 3 },
+                { text: '', },
+                { text: '', },
+                { text: 'net', rowSpan: 3 },
+
+              ],
+              [
+                { text: '', bold: true, alignment: 'center', },
+                { text: 'Mullbeton', },
+                { text: 'mot beton', },
+                { text: 'GP Fund', colSpan: 2 },
+                { text: '', },
+                { text: 'B', },
+                { text: '', },
+
+              ],
+              [
+                { text: '', bold: true, alignment: 'center', },
+                { text: 'q', },
+                { text: 'q', },
+                { text: 'Chada', },
+                { text: 'Agrim Prottahar', },
+                { text: 'kollan tohobil', },
+                { text: '', },
+
+              ],
+              [
+                { text: '1', },
+                { text: '1', },
+                { text: '1', },
+                { text: '1', },
+                { text: '1', },
+                { text: '1', },
+                { text: '9000', },
+
+              ],
+
+            ]
+          }
+        }
+
+
+
+
+
+      ],
+
+    };
+
+    pdfMake
+      .createPdf(docDefinition)
+      .open();
+
+
+
+  }
+
+
+
+
+
+
+
 
 
 

@@ -201,7 +201,7 @@ export class PdfComponent {
 
 
   downloadPDF() {
-    this.pdf.test(this.data)
+    this.pdf.tabelTesting()
   }
 
 
@@ -6628,7 +6628,9 @@ export class PdfComponent {
     // this.pdf.gradeSheetReport(this.data.payload);
     // this.pdf.test(this.data.payload);
 
-    this.payrollButexService.test(this.new);
+    // this.payrollButexService.test(this.new);
+
+    this.pdf.tabelTesting();
 
   }
 

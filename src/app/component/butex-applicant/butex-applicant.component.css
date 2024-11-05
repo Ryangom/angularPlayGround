@@ -1,0 +1,211 @@
+.containerNew {
+    padding: 1em 4em;
+}
+
+.applicantDash {
+    background-color: #F1F5F9;
+    margin: 0 auto;
+    padding-bottom: 4em;
+}
+
+.dashTop {
+    padding: 1em 4em;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    margin-top: 1em;
+}
+
+.dashTop .headingMarquee {
+    width: 10%;
+    height: 100%;
+}
+
+
+
+.dashTop .marquee {
+    width: 75%;
+    height: 100%;
+}
+
+.infoSection {
+    display: flex;
+    gap: 5em;
+    align-items: center;
+}
+
+.infoSection .content {
+    background-color: #3A526B;
+    padding: 1.5em 1em;
+    border-radius: 10px;
+    width: 80%;
+    color: white;
+}
+
+.applicationFeesSection h1 {
+    border-bottom: 1px solid black;
+    list-style: 20px;
+}
+
+.applicationFeesSection .content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    gap: 2em;
+}
+
+.applicationFeesSection .content .card {
+    background-color: #3A526B;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    gap: 2em;
+    width: 50%;
+}
+
+.applicationFeesSection .content .card p {
+    padding: 1em 2em;
+    color: #E99500;
+}
+
+.applicationFeesSection .content .card .status {
+    padding: 1em 2em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.paid {
+    background-color: #008B2E;
+}
+
+.due {
+    background-color: #BC1600;
+}
+
+
+
+.profile,
+.quick-links {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.profile {
+    width: 25%;
+}
+
+.quick-links {
+    width: 72%;
+}
+
+.section-title {
+    margin-top: 0;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.profile-img {
+    text-align: center;
+}
+
+.profile-img img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    text-align: center;
+    margin: 10px 0 5px;
+}
+
+.profile-info p {
+    text-align: center;
+    color: #666;
+    margin: 5px 0;
+}
+
+.profile-info .details-link {
+    text-align: center;
+    display: block;
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.quick-links-grid {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.link-button {
+    width: 220px;
+    padding: 1em 2em;
+    background-color: #3b4a6b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.link-button img {
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+.instructions {
+    display: flex;
+    gap: 1em;
+}
+
+.specialInstructions {
+    width: 60%;
+}
+
+.urgentContact {
+    width: 40%;
+}
+
+
+.instructions .card h1 {
+    border-bottom: 2px solid rgb(75, 29, 29);
+    margin-bottom: 1em;
+
+}
+
+.specialInstructions .content {
+    background-color: white;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 200px;
+}
+
+.urgentContact .content {
+    background-color: white;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 200px;
+}
